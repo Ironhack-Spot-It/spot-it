@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const sassMiddleware = require('node-sass-middleware');
 
 const indexRouter = require('./routes/index.routes');
 const authRouter = require('./routes/auth.routes');
@@ -18,6 +19,15 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(
+  sassMiddleware({
+    src: __dirname + '/sass', 
+    dest: __dirname + '/public/stylesheets',
+    debug: true, 
+    outputStyle: 'compressed',
+    prefix: '/stylesheets'
+  })
+);
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
