@@ -20,21 +20,19 @@ module.exports.setup = (passport) => {
       callbackURL: "http://localhost:3000/auth/spotify/cb"
     },
     function(accessToken, refreshToken, expires_in, profile, next) {
-        debugger;
-        console.log('Profile: ', profile);
-      // User.findOrCreate({ spotifyId: profile.id }, function (err, user) {
-      //   return next(err, user);
-      // });
+        //console.log('Profile: ', profile);
+      console.log('Profile --> ', profile)
       User.findOne({ spotifyId: profile.id })
         .then(user => {
+          console.log('Entro aquí: ', user);
           if(user) {
             next(null, user);
           }
           else {
             user = new User({
-              spotyfyId: profile.id,
+              spotifyId: profile.id,
               name: profile.username, 
-              //email: emails[0].value
+              email: profile.emails[0].value
             })
             return user.save()
               .then(user => {
