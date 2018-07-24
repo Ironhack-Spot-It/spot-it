@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "nodemon ./bin/www"
+    "dev": "DEBUG=ex-social-auth:* nodemon -e hbs,js ./bin/www"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -18,6 +18,7 @@
     "morgan": "~1.9.0",
     "node-sass-middleware": "^0.11.0",
     "passport": "^0.4.0",
+    "passport-spotify": "^1.0.0",
     "path": "^0.12.7"
   }
 }
