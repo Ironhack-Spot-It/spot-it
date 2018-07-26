@@ -14,6 +14,7 @@ const usersRouter = require('./routes/users.routes');
 
 require('./configs/db.config');
 require('./configs/passport.config').setup(passport);
+require('./configs/spotify.config');
 
 const app = express();
 
@@ -40,7 +41,7 @@ app.use(passport.session());
 
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
-app.use('/users', usersRouter);
+app.use('/user', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
