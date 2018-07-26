@@ -3,6 +3,7 @@ const SpotifyStrategy = require('passport-spotify').Strategy;
 
 
 module.exports.setup = (passport) => {
+
   passport.serializeUser((user, next) => {
     next(null, user._id);
   });
@@ -24,17 +25,22 @@ module.exports.setup = (passport) => {
         //console.log('Profile: ', profile);
       console.log('Aquí sucede la magia:',accessToken, refreshToken, expires_in);
       console.log('Profile --> ', profile)
-      User.findOne({ spotifyId: profile.id })
+      User.findOne({ 'social.spotifyId': profile.id })
         .then(user => {
           console.log('Entro aquí: ', user);
-          if(user) {
+          if (user) {
+            // TODO update user accesToken
             next(null, user);
           }
           else {
             user = new User({
-              spotifyId: profile.id,
               name: profile.username, 
-              email: profile.emails[0].value
+              email: profile.emails[0].value,
+              social: {
+                spotifyId: profile.id,
+                accessToken: accessToken, 
+                refreshToken: refreshToken
+              }
             })
             return user.save()
               .then(user => {

@@ -1,9 +1,9 @@
 const passport = require('passport');
-const SpotifyWebApi = require('spotify-web-api-node');
-const spotifyApi = new SpotifyWebApi();
+const User = require('../models/user.model');
+const spotifyApi = require ('../services/spotify.service');
 
 module.exports.welcome = (req, res, next) => {
-    console.log('Esti es la mejor ----->', req.body);
+    spotifyApi.setToken(req);
     res.render('welcome');
 };
 

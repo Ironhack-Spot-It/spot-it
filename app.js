@@ -6,6 +6,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const passport = require('passport');
+const session = require('express-session')
 const sassMiddleware = require('node-sass-middleware');
 
 const indexRouter = require('./routes/index.routes');
@@ -36,6 +37,16 @@ app.use(
   })
 );
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+  secret: process.env.COOKIE_SECRET || 'SuperSecret - (Change it)',
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    secure: false,
+    httpOnly: true,
+    maxAge: 60 * 60 * 24 * 1000
+  }
+}))
 app.use(passport.initialize());
 app.use(passport.session());
 
