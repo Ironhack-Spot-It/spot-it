@@ -18,8 +18,10 @@
     "mongoose": "^5.2.4",
     "morgan": "~1.9.0",
     "node-sass-middleware": "^0.11.0",
+    "nodemon": "^1.18.3",
     "passport": "^0.4.0",
     "passport-spotify": "^1.0.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "spotify-web-api-node": "^3.1.1"
   }
 }

@@ -1,0 +1,21 @@
+<h1>HOLA {{user.name}}</h1>
+
+<img src="{{user.image}}" width="200" alt="">
+ 
+<ul>
+    {{#each user.trackingInfo.followingArtists as |artist|}}
+    <li>{{artist}}</li>
+    {{/each}}
+</ul>
+
+<ul>
+    {{#each user.trackingInfo.top.tracks as |track|}}
+    <li>{{track}}</li>
+    {{/each}}
+</ul>
+
+<ul>
+    {{#each user.trackingInfo.top.playLists as |play|}}
+    <li>{{play}}</li>
+    {{/each}}
+</ul> 
