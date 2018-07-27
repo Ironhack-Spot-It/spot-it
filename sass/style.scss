@@ -1,13 +1,18 @@
+@font-face {
+    font-family: "AlteHaasGroteskBold";
+    src: url("../public/fonts/AlteHaasGroteskBold.ttf");
+}
+
 body {
     padding: 50px;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background-color: #000000;
+    color: #fff;
 }
     
-  
-a {
-    color: #00B7FF;
-}
-    
+h1 {
+    font-family: "AlteHaasGroteskBold", "Arial", sans-serif;
+} 
 
     
 
