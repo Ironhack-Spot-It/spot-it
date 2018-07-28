@@ -16,6 +16,7 @@ const usersRouter = require('./routes/users.routes');
 require('./configs/db.config');
 require('./configs/passport.config').setup(passport);
 require('./configs/spotify.config');
+require('./configs/hbs.config');
 
 const app = express();
 
@@ -49,6 +50,11 @@ app.use(session({
 }))
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use((req, res, next) => {
+  res.locals.session = req.user;
+  next();
+})
 
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
