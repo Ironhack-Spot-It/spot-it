@@ -16,6 +16,10 @@ module.exports.setup = (passport) => {
       .catch(error => next(error));
   });
 
+  setImg = picsList => {
+    return picsList.length ? picsList : "https://thumbs.dreamstime.com/b/icono-masculino-de-la-imagen-del-perfil-del-avatar-del-defecto-placeholder-gris-de-la-foto-del-hombre-88414414.jpg"
+  }
+
   passport.use(new SpotifyStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
@@ -32,7 +36,7 @@ module.exports.setup = (passport) => {
                 user = new User({
                   name: profile.username,
                   email: profile.emails[0].value,
-                  image: profile.photos,
+                  image: setImg(profile.photos),
                   social: {
                     spotifyId: profile.id
                   }
@@ -43,6 +47,7 @@ module.exports.setup = (passport) => {
 
               user.topTracks = data.tracks;
               user.playlists = data.playlists;
+              user.followingArtists = data.artists;
 
               return user.save()
                 .then(user => next(null, user))

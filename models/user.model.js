@@ -17,10 +17,14 @@ const userSchema = new mongoose.Schema({
         refreshToken: String
     },
 
-    // followingArtists: [{
-    //     id: String,
-    //     url: String
-    // }],
+    followingArtists: [{
+        id: String,
+        name: String,
+        url: String,
+        imgUrl: String, 
+        genres: Array
+
+    }],
 
     topTracks: [{
         name: String,

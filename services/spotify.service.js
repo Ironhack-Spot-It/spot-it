@@ -11,7 +11,9 @@ spotifyApi.getUserData = function (accessToken, userId) {
 
     return Promise.all([
         this.getUserPlaylists(userId),
-        this.getMyTopTracks()
+        this.getMyTopTracks(),
+        // this.getMyTopArtists()
+        this.getFollowedArtists()
     ]).then(promises => {
         const playlist = promises[0].body.items
             .map((playlist) => {
@@ -31,11 +33,23 @@ spotifyApi.getUserData = function (accessToken, userId) {
                     imgUrl: track.album.images[0].url
                 }
             });
-        console.log(playlist);
+        const artists = promises[2].body.artists.items
+            .map((artist) => {
+                //console.log('MY TOP ARTISTS ', artist);
+                return {
+                    id: artist.id,
+                    name: artist.name, 
+                    url: artist.href, 
+                    genres: artist.genres,
+                    imgUrl: artist.images[0].url
+                }
+            })
         return Promise.resolve({
             tracks: tracks,
-            playlists: playlist
+            playlists: playlist,
+            artists: artists
         })
     });
 }
 module.exports = spotifyApi;
+
