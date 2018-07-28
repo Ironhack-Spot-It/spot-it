@@ -16,23 +16,27 @@ const userSchema = new mongoose.Schema({
         accessToken: String,
         refreshToken: String
     },
-    trackingInfo: {
-        followingArtists: {
-            type: Array,
-            default: ["A", "B", "C"]
-        },
 
-        top: {
-            tracks: {
-                type: Array,
-                default: ["E", "F", "G"],
-            },
-            playLists: {
-                type: Array,
-                default:  ["H", "I", "8"]
-            }
-        }
-    }
+    followingArtists: [{
+        id: String,
+        name: String,
+        url: String,
+        imgUrl: String, 
+        genres: Array
+
+    }],
+
+    topTracks: [{
+        name: String,
+        url: String,
+        imgUrl: String
+    }],
+
+    playlists:[{
+        name: String,
+        url: String,
+        imgUrl: String
+    }]
 });
 
 const User = mongoose.model('User', userSchema);

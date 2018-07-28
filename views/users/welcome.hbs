@@ -2,20 +2,21 @@
 
 <img src="{{user.image}}" width="200" alt="">
  
-<ul>
-    {{#each user.trackingInfo.followingArtists as |artist|}}
-    <li>{{artist}}</li>
-    {{/each}}
-</ul>
 
 <ul>
-    {{#each user.trackingInfo.top.tracks as |track|}}
+    {{#each user.topTracks as |track|}}
     <li>{{track}}</li>
     {{/each}}
 </ul>
 
 <ul>
-    {{#each user.trackingInfo.top.playLists as |play|}}
+    {{#each user.playlists as |play|}}
     <li>{{play}}</li>
+    {{/each}}
+</ul> 
+
+<ul>
+    {{#each user.followingArtists as |artist|}}
+    <li>ARTIHTAH!! {{artist}}</li>
     {{/each}}
 </ul> 
