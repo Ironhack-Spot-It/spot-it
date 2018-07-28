@@ -18,11 +18,11 @@ spotifyApi.getUserData = function (accessToken, userId) {
                 return {
                     id: playlist.id,
                     name: playlist.name,
-                    uri: playlist.uri,
+                    url: playlist.uri,
                     imgUrl: playlist.images[0].url
                 }
             });
-        const traks = promises[1].body.items
+        const tracks = promises[1].body.items
             .map((track) => {
                 return {
                     id: track.id,
@@ -33,7 +33,7 @@ spotifyApi.getUserData = function (accessToken, userId) {
             });
         console.log(playlist);
         return Promise.resolve({
-            tracks: traks,
+            tracks: tracks,
             playlists: playlist
         })
     });

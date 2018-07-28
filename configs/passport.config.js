@@ -22,19 +22,17 @@ module.exports.setup = (passport) => {
     callbackURL: "/auth/spotify/cb"
   },
     function (accessToken, refreshToken, expires_in, profile, next) {
-      //console.log('Profile: ', profile);
-      console.log('Aquí sucede la magia:', accessToken, refreshToken, expires_in);
-      console.log('Profile --> ', profile)
       User.findOne({ 'social.spotifyId': profile.id })
         .then(user => {
           return SpotifyService.getUserData(accessToken, profile.id)
             .then(data => {
-              console.log(data);
-              console.log('Entro aquí: ', user);
+              //console.log("Este es el ", data);
+              //console.log("Este es el profile", profile);
               if (!user) {
                 user = new User({
                   name: profile.username,
                   email: profile.emails[0].value,
+                  image: profile.photos,
                   social: {
                     spotifyId: profile.id
                   }
@@ -42,7 +40,10 @@ module.exports.setup = (passport) => {
               }
               user.social.accessToken = accessToken;
               user.social.refreshToken = refreshToken;
-              user.traks = data.traks;
+
+              user.topTracks = data.tracks;
+              user.playlists = data.playlists;
+
               return user.save()
                 .then(user => next(null, user))
             })
