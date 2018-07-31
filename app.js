@@ -18,6 +18,7 @@ require('./configs/passport.config').setup(passport);
 require('./configs/spotify.config');
 require('./configs/hbs.config');
 
+
 const app = express();
 
 // view engine setup
