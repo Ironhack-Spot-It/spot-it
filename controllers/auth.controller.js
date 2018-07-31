@@ -11,7 +11,7 @@ module.exports.loginCallback = (req, res, next) => {
                 if (error) {
                     next (error)
                 } else {
-                    res.redirect(`/user/${user._id}`)
+                    res.redirect(`/user/${user.name}`)
                 }
             });
         }
