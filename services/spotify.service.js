@@ -26,20 +26,22 @@ spotifyApi.getUserData = function (accessToken, userId) {
             });
         const tracks = promises[1].body.items
             .map((track) => {
+                //console.log('TRACKS ', track.artists);
                 return {
                     id: track.id,
                     name: track.name,
+                    artist: track.artists[0].name,
                     url: track.external_urls.spotify,
                     imgUrl: track.album.images[0].url
                 }
             });
         const artists = promises[2].body.artists.items
             .map((artist) => {
-                //console.log('MY TOP ARTISTS ', artist);
+                // console.log('MY TOP ARTISTS ', artist);
                 return {
                     id: artist.id,
                     name: artist.name, 
-                    url: artist.href, 
+                    url: artist.external_urls.spotify,
                     genres: artist.genres,
                     imgUrl: artist.images[0].url
                 }
