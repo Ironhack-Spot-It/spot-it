@@ -47,12 +47,13 @@ module.exports.setup = (passport) => {
 
               user.topTracks = data.tracks;
               user.playlists = data.playlists;
-              console.log('HOLA', data.tracks);
               user.followingArtists = data.artists;
+
 
               return user.save()
                 .then(user => next(null, user))
             })
+          })
         })
         .catch(error => next(error));
     }));
