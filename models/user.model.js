@@ -27,12 +27,15 @@ const userSchema = new mongoose.Schema({
     }],
 
     topTracks: [{
+        id: String,
         name: String,
+        artist: String,
         url: String,
         imgUrl: String
     }],
 
     playlists:[{
+        id: String,
         name: String,
         url: String,
         imgUrl: String
