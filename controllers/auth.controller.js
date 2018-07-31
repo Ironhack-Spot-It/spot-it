@@ -2,7 +2,7 @@ const passport = require('passport');
 
 module.exports.loginCallback = (req, res, next) => {
     passport.authenticate ('spotify',(error, user) => {
-        console.log('User: ', user);
+        //console.log('User: ', user);
         if (error) {
             console.log('Error: ',  error)
             next(error);

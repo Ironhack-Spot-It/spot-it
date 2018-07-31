@@ -1,22 +1,46 @@
-<h1>HOLA {{user.name}}</h1>
+<h1>Hola {{user.name}}</h1>
 
 <img src="{{user.image}}" width="200" alt="">
- 
 
-<ul>
+
+<h2>User's top tracks</h2>
+<section class="d-flex flex-wrap">
     {{#each user.topTracks as |track|}}
-    <li>{{track}}</li>
+    <article class="card text-dark col-4">
+        <img class="card-img-top" src="{{track.imgUrl}}" alt="{{track.name}}">
+        <div class="card-body">
+            <h5 class="card-title">{{track.name}}</h5>
+            <p class="card-text">{{track.artist}}</p>
+            <a href="{{track.url}}" target="_blank" class="btn btn-primary">Listen</a>
+        </div>
+    </article>
     {{/each}}
-</ul>
+</section>
 
-<ul>
+<h2>Most listened playlists</h2>
+<section class="d-flex flex-wrap">
     {{#each user.playlists as |play|}}
-    <li>{{play}}</li>
+    <article class="card text-dark col-4">
+        <img class="card-img-top" src="{{play.imgUrl}}" alt="{{play.name}}">
+        <div class="card-body">
+            <h5 class="card-title">{{play.name}}</h5>
+            {{!-- <p class="card-text">Aquí irá el nombre del artista</p> --}}
+            <a href="{{play.url}}" target="_blank" class="btn btn-primary">Go to playlist</a>
+        </div>
+    </article>
     {{/each}}
-</ul> 
+</section>
 
-<ul>
+<h2>Following artists</h2>
+<section class="d-flex flex-wrap">
     {{#each user.followingArtists as |artist|}}
-    <li>ARTIHTAH!! {{artist}}</li>
+    <article class="card text-dark col-4">
+        <img class="card-img-top" src="{{artist.imgUrl}}" alt="{{artist.name}}">
+        <div class="card-body">
+            <h5 class="card-title">{{artist.name}}</h5>
+            {{!-- <p class="card-text">Aquí irá el nombre del artista</p> --}}
+            <a href="{{artist.url}}" target="_blank" class="btn btn-primary">Artist's profile</a>
+        </div>
+    </article>
     {{/each}}
-</ul> 
+</section>
