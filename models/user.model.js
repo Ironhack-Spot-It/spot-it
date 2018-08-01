@@ -46,15 +46,19 @@ const userSchema = new mongoose.Schema({
 });
 
 userSchema.methods.getRelations = function() {
+    console.log('FOLLOW', this);
     return Promise.all([
         this.model('User')
-            .find( {'followingArtists.id': this.followingArtists.id }, {_id: 1})
+            .find( { _id: { $ne: this._id }, 'followingArtists.id': { $in: this.followingArtists.map(artist => artist.id) } }, {_id: 1})
             .limit(MATCH_LIMIT)
     ]).then(promises => {
+        console.log('LAS PROMESAS SON:', promises)
         return Promise.resolve({
             matchArtist: promises[0]
         })
     });
+
+
     // return this.model('User')
     // .find( {'followingArtists.id': this.followingArtists.id }, {_id: 1})
     // .limit(MATCH_LIMIT)

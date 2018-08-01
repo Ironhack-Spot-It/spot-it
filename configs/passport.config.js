@@ -49,11 +49,15 @@ module.exports.setup = (passport) => {
               user.playlists = data.playlists;
               user.followingArtists = data.artists;
 
+              user.getRelations(user.followingArtists.id)
+                .then(rel => {
+                  console.log('RELATION ', rel);
+                  //user.followingArtists.matches = rel.matchArtist;
+                })
 
               return user.save()
                 .then(user => next(null, user))
             })
-          })
         })
         .catch(error => next(error));
     }));
