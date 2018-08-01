@@ -6,12 +6,12 @@
 <h2>User's top tracks</h2>
 <section class="d-flex flex-wrap">
     {{#each user.topTracks as |track|}}
-    <article class="card text-dark col-4">
-        <img class="card-img-top" src="{{track.imgUrl}}" alt="{{track.name}}">
-        <div class="card-body">
-            <h5 class="card-title">{{track.name}}</h5>
-            <p class="card-text">{{track.artist}}</p>
-            <a href="{{track.url}}" target="_blank" class="btn btn-primary">Listen</a>
+    <article class="item-card text-dark">
+        <img class="item-card__img" src="{{track.imgUrl}}" alt="{{track.name}}">
+        <div class="item-card__content">
+            <h5 class="item-card__title">{{track.name}}</h5>
+            <p class="item-card__text">{{track.artist}}</p>
+            {{!-- <a href="{{track.url}}" target="_blank" class="btn btn-primary">Listen</a> --}}
         </div>
     </article>
     {{/each}}
