@@ -51,7 +51,7 @@ module.exports.setup = (passport) => {
 
               user.getRelations(user.followingArtists.id)
                 .then(rel => {
-                  console.log('RELATION ', rel);
+                  //console.log('RELATION ', rel);
                   //user.followingArtists.matches = rel.matchArtist;
                 })
 
