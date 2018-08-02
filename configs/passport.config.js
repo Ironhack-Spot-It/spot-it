@@ -51,8 +51,13 @@ module.exports.setup = (passport) => {
 
               user.getRelations(user.followingArtists.id)
                 .then(rel => {
-                  //console.log('RELATION ', rel);
-                  //user.followingArtists.matches = rel.matchArtist;
+                  //console.log('REL: ', rel)
+                  const matchId = rel.matchArtist.map(artist => artist._id);
+                  user.followingArtists.matches = matchId;
+                  //user.followingArtists.matches = rel.matchArtist; 
+                  console.log('HOLA, ESTAS SOLA?: ', matchId);
+                  user.playlists.matches = rel.matchPlaylists;
+                  user.topTracks = rel.matchTracks;
                 })
 
               return user.save()

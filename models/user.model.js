@@ -24,7 +24,7 @@ const userSchema = new mongoose.Schema({
         url: String,
         imgUrl: String, 
         genres: Array, 
-        matches: [String]
+        matches: Array
     }],
 
     topTracks: [{
@@ -33,7 +33,7 @@ const userSchema = new mongoose.Schema({
         artist: String,
         url: String,
         imgUrl: String, 
-        matches: [String]
+        matches: Array
     }],
 
     playlists:[{
@@ -41,12 +41,12 @@ const userSchema = new mongoose.Schema({
         name: String,
         url: String,
         imgUrl: String,
-        matches: [String]
+        matches: Array
     }]
 });
 
 userSchema.methods.getRelations = function() {
-    console.log('FOLLOW', this.playlists);
+    //console.log('FOLLOW', this.playlists);
     return Promise.all([
         this.model('User')
             .find( { _id: { $ne: this._id }, 'followingArtists.id': { $in: this.followingArtists.map(artist => artist.id) } }, {_id: 1})
@@ -58,18 +58,13 @@ userSchema.methods.getRelations = function() {
             .find( { _id: { $ne: this._id }, 'topTracks.id': { $in: this.topTracks.map(track => track.id) } }, {_id: 1})
             .limit(MATCH_LIMIT)
     ]).then(promises => {
-        //console.log('LAS PROMESAS SON:', promises[1])
+        //console.log('LAS PROMESAS SON:', promises)
         return Promise.resolve({
             matchArtist: promises[0], 
             matchPlaylists: promises[1],
             matchTracks: promises[2]
         })
     });
-
-
-    // return this.model('User')
-    // .find( {'followingArtists.id': this.followingArtists.id }, {_id: 1})
-    // .limit(MATCH_LIMIT)
 }
 
 const User = mongoose.model('User', userSchema);
