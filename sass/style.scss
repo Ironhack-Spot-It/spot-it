@@ -9,9 +9,8 @@
 
 @font-face {
     font-family: "AlteHaasGroteskBold";
-    src: url("../public/fonts/AlteHaasGroteskBold.ttf");
+    src: url("/public/fonts/AlteHaasGroteskBold.ttf");
 }
-
 
 body {
     font: 16px "Open Sans", Helvetica, Arial, sans-serif;
@@ -28,4 +27,10 @@ h1 {
     background-color: $color-spotify;
 }
 
-
+.separator {
+    display: block;
+    margin-bottom: 3em;
+    height: 5px;
+    width: 10%;
+    background-color: $color-primary;
+}

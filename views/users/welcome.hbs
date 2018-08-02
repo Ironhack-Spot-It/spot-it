@@ -4,6 +4,7 @@
 
 
 <h2>User's top tracks</h2>
+<span class="separator"></span>
 <section class="d-flex flex-wrap">
     {{#each user.topTracks as |track|}}
     <article class="item-card">
@@ -12,7 +13,6 @@
         <div class="item-card__content">
             <h5 class="item-card__title">{{track.name}}</h5>
             <p class="item-card__text">{{track.artist}}</p>
-            {{!-- <a href="{{track.url}}" target="_blank" class="btn btn-primary">Listen</a> --}}
         </div>
         </a>
     </article>
@@ -22,27 +22,28 @@
 <h2>Most listened playlists</h2>
 <section class="d-flex flex-wrap">
     {{#each user.playlists as |play|}}
-    <article class="card text-dark col-4">
-        <img class="card-img-top" src="{{play.imgUrl}}" alt="{{play.name}}">
-        <div class="card-body">
-            <h5 class="card-title">{{play.name}}</h5>
-            {{!-- <p class="card-text">Aquí irá el nombre del artista</p> --}}
-            <a href="{{play.url}}" target="_blank" class="btn btn-primary">Go to playlist</a>
+    <article class="item-card">
+        <a href="{{play.url}}" target="_blank">
+        <img class="item-card__img" src="{{play.imgUrl}}" alt="{{play.name}}">
+        <div class="item-card__content">
+            <h5 class="item-card__title">{{play.name}}</h5>
         </div>
+        </a>
     </article>
     {{/each}}
 </section>
 
+
 <h2>Following artists</h2>
 <section class="d-flex flex-wrap">
     {{#each user.followingArtists as |artist|}}
-    <article class="card text-dark col-4">
-        <img class="card-img-top" src="{{artist.imgUrl}}" alt="{{artist.name}}">
-        <div class="card-body">
-            <h5 class="card-title">{{artist.name}}</h5>
-            {{!-- <p class="card-text">Aquí irá el nombre del artista</p> --}}
-            <a href="{{artist.url}}" target="_blank" class="btn btn-primary">Artist's profile</a>
+    <article class="item-card">
+        <a href="{{artist.url}}" target="_blank">
+        <img class="item-card__img" src="{{artist.imgUrl}}" alt="{{artist.name}}">
+        <div class="item-card__content">
+            <h5 class="item-card__title">{{artist.name}}</h5>
         </div>
+        </a>
     </article>
     {{/each}}
 </section>
