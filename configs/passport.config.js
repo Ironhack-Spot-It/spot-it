@@ -48,6 +48,9 @@ module.exports.setup = (passport) => {
               user.topTracks = data.tracks;
               user.playlists = data.playlists;
               user.followingArtists = data.artists;
+              user.matchesArtists = data.artists.map(artist => artist.id); 
+              user.matchesTracks = data.tracks.map(track => track.id); 
+              user.matchesPlaylists = data.playlists.map(play => play.id);
 
               user.getRelations(user.followingArtists.id)
                 .then(rel => {

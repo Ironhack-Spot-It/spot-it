@@ -42,7 +42,11 @@ const userSchema = new mongoose.Schema({
         url: String,
         imgUrl: String,
         matches: Array
-    }]
+    }],
+
+    matchesArtists: Array,
+    matchesTracks: Array, 
+    matchesPlaylists: Array
 });
 
 userSchema.methods.getRelations = function() {
