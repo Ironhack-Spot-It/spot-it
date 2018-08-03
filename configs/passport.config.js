@@ -48,20 +48,15 @@ module.exports.setup = (passport) => {
               user.topTracks = data.tracks;
               user.playlists = data.playlists;
               user.followingArtists = data.artists;
-              user.matchesArtists = data.artists.map(artist => artist.id); 
-              user.matchesTracks = data.tracks.map(track => track.id); 
-              user.matchesPlaylists = data.playlists.map(play => play.id);
 
-              user.getRelations(user.followingArtists.id)
-                .then(rel => {
-                  //console.log('REL: ', rel)
-                  const matchId = rel.matchArtist.map(artist => artist._id);
-                  user.followingArtists.matches = matchId;
-                  //user.followingArtists.matches = rel.matchArtist; 
-                  console.log('HOLA, ESTAS SOLA?: ', matchId);
-                  user.playlists.matches = rel.matchPlaylists;
-                  user.topTracks = rel.matchTracks;
-                })
+              //////
+
+              const allGenres = data.artists.map(artist => {
+                return artist.genres;
+              });
+
+              const favoriteGenres = [].concat.apply([], allGenres);
+              console.log('GENEROS FAVORITOS???:', favoriteGenres);
 
               return user.save()
                 .then(user => next(null, user))

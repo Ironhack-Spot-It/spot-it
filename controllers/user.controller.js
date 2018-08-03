@@ -3,8 +3,16 @@ const User = require('../models/user.model');
 const spotifyApi = require ('../services/spotify.service');
 
 module.exports.welcome = (req, res, next) => {
-    //console.log('Tu token es: ', req.user.social.accessToken);
-    res.render('users/welcome', {user: req.user});
+    req.user.getRelations()
+        .then(matches => {
+            console.log('Sa matao paco', matches);
+            res.render('users/welcome', {
+                user: req.user,
+                matches 
+            });
+        })
+        .catch(error => next(error));
+    
 };
 
 

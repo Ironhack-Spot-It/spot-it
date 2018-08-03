@@ -2,6 +2,12 @@
 
 <img src="{{user.image}}" width="200" alt="">
 
+<h2>MAtches :D</h2>
+
+{{#each matches.byArtist as |user|}}
+    <p>{{ user.email }}</p>
+{{/each}}
+
 
 <h2>User's top tracks</h2>
 <span class="separator"></span>
