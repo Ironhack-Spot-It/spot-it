@@ -4,13 +4,22 @@
 
 <h2>MAtches :D</h2>
 
-{{#each matches.byArtist as |user|}}
-    <p>{{ user.email }}</p>
+{{#each matches.byArtist as |crush|}}
+<a href="user/{{crush.name}}">
+    <p>{{ crush.email }}</p>
+</a>
 {{/each}}
 
+{{#each matches.byTracks as |crush|}}
+    <p>{{ crush.email }}</p>
+{{/each}}
 
-<h2>User's top tracks</h2>
-<span class="separator"></span>
+{{> message }}
+
+<header>
+    <h2>User's top tracks</h2>
+    <span class="separator"></span>
+</header>
 <section class="d-flex flex-wrap">
     {{#each user.topTracks as |track|}}
     <article class="item-card">
@@ -25,7 +34,10 @@
     {{/each}}
 </section>
 
-<h2>Most listened playlists</h2>
+<header>
+    <h2>Most listened playlists</h2>
+    <span class="separator"></span>
+</header>
 <section class="d-flex flex-wrap">
     {{#each user.playlists as |play|}}
     <article class="item-card">
@@ -39,8 +51,10 @@
     {{/each}}
 </section>
 
-
-<h2>Following artists</h2>
+<header>
+    <h2>Following artists</h2>
+    <span class="separator"></span>
+</header>
 <section class="d-flex flex-wrap">
     {{#each user.followingArtists as |artist|}}
     <article class="item-card">

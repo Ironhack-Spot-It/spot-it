@@ -49,7 +49,7 @@ const userSchema = new mongoose.Schema({
 
 userSchema.methods.getRelations = function() {
 
-    console.log(this.followingArtists);
+    //console.log(this.followingArtists);
 
     return Promise.all([
         this.model('User').find({ followingArtists: { $in: this.followingArtists }, _id: { $ne: this._id }}).limit(MATCH_LIMIT),

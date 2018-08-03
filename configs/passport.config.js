@@ -49,14 +49,14 @@ module.exports.setup = (passport) => {
               user.playlists = data.playlists;
               user.followingArtists = data.artists;
 
-              //////
-
-              const allGenres = data.artists.map(artist => {
-                return artist.genres;
-              });
-
-              const favoriteGenres = [].concat.apply([], allGenres);
-              console.log('GENEROS FAVORITOS???:', favoriteGenres);
+              const allGenres = data.artists.reduce((acc, am) => {
+                // console.log('ACC', acc);
+                return acc + am.genres + ',';
+                
+              }, '');
+              
+              console.log('THESE ARE ALL GENRES: ', allGenres);
+              user.favoriteGenres = allGenres;
 
               return user.save()
                 .then(user => next(null, user))
