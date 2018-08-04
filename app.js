@@ -12,7 +12,6 @@ const sassMiddleware = require('node-sass-middleware');
 const indexRouter = require('./routes/index.routes');
 const authRouter = require('./routes/auth.routes');
 const usersRouter = require('./routes/users.routes');
-const messageRouter = require('./routes/message.routes');
 
 require('./configs/db.config');
 require('./configs/passport.config').setup(passport);
@@ -60,7 +59,6 @@ app.use((req, res, next) => {
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/user', usersRouter);
-app.use('/user/message', messageRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
