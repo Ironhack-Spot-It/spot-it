@@ -49,11 +49,12 @@ module.exports.setup = (passport) => {
               user.playlists = data.playlists;
               user.followingArtists = data.artists;
 
-              const allGenres = data.artists.reduce((acc, am) => {
-              
-                return acc.concat(am.genres);
-                
+              let allGenres = data.artists.reduce((acc, am) => {
+                let favs = acc.concat(am.genres);
+
+                return favs;
               }, []);
+
               
               console.log('THESE ARE ALL GENRES: ', allGenres);
               user.favoriteGenres = allGenres;
