@@ -1,6 +1,8 @@
+require('dotenv');
 const mongoose = require('mongoose');
 const DB_NAME = 'spot-it';
-const DB_URI = `mongodb://localhost:27017/${DB_NAME}`;
+const DB_URI =  process.env.MONGO_URI;
+
 
 mongoose.connect(DB_URI)
     .then(()=> 
