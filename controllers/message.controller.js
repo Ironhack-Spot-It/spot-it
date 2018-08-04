@@ -16,14 +16,12 @@ module.exports.sendMessage = (req, res, next) => {
 };
 
 module.exports.showMessages = (req, res, next) => {
-    const recivedMsg = Msg.find({ to: req.user.name})
+    Msg.find({ to: req.user.name})
         .then(allMessages => {
             console.log('MENSAHITOOOO', allMessages);
-            return allMessages
+            res.render('users/inbox', { messages: allMessages })
         })
         .catch(error => {
             next(error)
         })
-   
-    res.render('users/inbox', {messages: recivedMsg})
 }
