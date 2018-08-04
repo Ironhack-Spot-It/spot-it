@@ -30,8 +30,7 @@ module.exports.setup = (passport) => {
         .then(user => {
           return SpotifyService.getUserData(accessToken, profile.id)
             .then(data => {
-              //console.log("Este es el ", data);
-              //console.log("Este es el profile", profile);
+              
               if (!user) {
                 user = new User({
                   name: profile.username,
@@ -49,15 +48,22 @@ module.exports.setup = (passport) => {
               user.playlists = data.playlists;
               user.followingArtists = data.artists;
 
-              let allGenres = data.artists.reduce((acc, am) => {
-                let favs = acc.concat(am.genres);
 
-                return favs;
-              }, []);
+              let allGenres = data.artists.reduce((acc, artist) => {
+                  artist.genres.forEach((genre) => {
+                    acc[genre] = acc[genre] || 0;
+                    acc[genre]++;
+                  })
+                  return acc;
+              }, {} );
+
+              let favouritesGenres = Object.keys(allGenres).filter((genre) => {
+                return allGenres[genre] > 1;
+              })
 
               
-              console.log('THESE ARE ALL GENRES: ', allGenres);
-              user.favoriteGenres = allGenres;
+              console.log('THESE ARE ALL GENRES: ', favouritesGenres);
+              user.favoriteGenres = favouritesGenres;
 
               return user.save()
                 .then(user => next(null, user))

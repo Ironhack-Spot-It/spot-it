@@ -5,15 +5,20 @@ const Msg = require('../models/message.model');
 const spotifyApi = require ('../services/spotify.service');
 
 module.exports.welcome = (req, res, next) => {
-    req.user.getRelations()
-        .then(matches => {
-            //console.log('Sa matao paco', matches);
-            res.render('users/welcome', {
-                user: req.user,
-                matches 
-            });
+    User.findOne({ name: req.params.name })
+        .then((user) => {
+            if (user) {
+                user.getRelations()
+                    .then(matches => {
+                        //console.log('Sa matao paco', matches);
+                        res.render('users/welcome', {
+                            user: user,
+                            matches 
+                        });
+                    })
+                    .catch(error => next(error));
+            }
         })
-        .catch(error => next(error));
     
 };
 
