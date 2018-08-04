@@ -50,10 +50,10 @@ module.exports.setup = (passport) => {
               user.followingArtists = data.artists;
 
               const allGenres = data.artists.reduce((acc, am) => {
-                // console.log('ACC', acc);
-                return acc + am.genres + ',';
+              
+                return acc.concat(am.genres);
                 
-              }, '');
+              }, []);
               
               console.log('THESE ARE ALL GENRES: ', allGenres);
               user.favoriteGenres = allGenres;
