@@ -53,34 +53,19 @@ userSchema.methods.getRelations = function() {
 
     return Promise.all([
         this.model('User').find({ followingArtists: { $in: this.followingArtists }, _id: { $ne: this._id }}).limit(MATCH_LIMIT),
-        this.model('User').find({ topTracks: { $in: this.topTracks }, _id: { $ne: this._id }}).limit(MATCH_LIMIT)
+        this.model('User').find({ topTracks: { $in: this.topTracks }, _id: { $ne: this._id }}).limit(MATCH_LIMIT), 
+        this.model('User').find({ favoriteGenres: { $in: this.favoriteGenres }, 
+            _id: { $ne: this._id }
+        }).limit(MATCH_LIMIT)
     ])
-    .then(([byArtist, byTracks]) => {
+    .then(([byArtist, byTracks, byGenres]) => {
         return Promise.resolve({
             byArtist: byArtist,
-            byTracks: byTracks
+            byTracks: byTracks, 
+            byGenres: byGenres
         })
     });
 
-    // //console.log('FOLLOW', this.playlists);
-    // return Promise.all([
-    //     this.model('User')
-    //         .find( { _id: { $ne: this._id }, 'followingArtists.id': { $in: this.followingArtists.map(artist => artist.id) } }, {_id: 1})
-    //         .limit(MATCH_LIMIT),
-    //     this.model('User')
-    //         .find( { _id: { $ne: this._id }, 'playlists.id': { $in: this.playlists.map(play => play.id) } }, {_id: 1})
-    //         .limit(MATCH_LIMIT),
-    //     this.model('User')
-    //         .find( { _id: { $ne: this._id }, 'topTracks.id': { $in: this.topTracks.map(track => track.id) } }, {_id: 1})
-    //         .limit(MATCH_LIMIT)
-    // ]).then(promises => {
-    //     //console.log('LAS PROMESAS SON:', promises)
-    //     return Promise.resolve({
-    //         matchArtist: promises[0], 
-    //         matchPlaylists: promises[1],
-    //         matchTracks: promises[2]
-    //     })
-    // });
 }
 
 userSchema.methods.getFavoriteGenres = function() {

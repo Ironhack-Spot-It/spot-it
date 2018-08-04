@@ -6,12 +6,20 @@
 
 {{#each matches.byArtist as |crush|}}
 <a href="user/{{crush.name}}">
+    <p>By Artists</p>
     <p>{{ crush.email }}</p>
 </a>
 {{/each}}
 
 {{#each matches.byTracks as |crush|}}
+    <p>By Track</p>
     <p>{{ crush.email }}</p>
+{{/each}}
+
+{{#each matches.byGenres as |crush|}}
+    <p>By Genre</p>
+    <p>{{ crush.email }}</p>
+    
 {{/each}}
 
 {{> message }}

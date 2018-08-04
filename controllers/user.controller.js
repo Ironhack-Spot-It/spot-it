@@ -10,7 +10,6 @@ module.exports.welcome = (req, res, next) => {
             if (user) {
                 user.getRelations()
                     .then(matches => {
-                        //console.log('Sa matao paco', matches);
                         res.render('users/welcome', {
                             user: user,
                             matches 
