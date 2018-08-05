@@ -1,6 +1,6 @@
 <div>
-    <form action="POST" action="/user/messages">
-        <input type="text">
+    <form method="POST" action="/user/{{user.name}}/messages">
+        <input type="text" name="message">
         <button type="submit" class="btn btn-primary">Send Love</button>
     </form>
 </div>

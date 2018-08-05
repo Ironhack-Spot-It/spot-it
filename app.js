@@ -15,7 +15,6 @@ const usersRouter = require('./routes/users.routes');
 
 require('./configs/db.config');
 require('./configs/passport.config').setup(passport);
-require('./configs/spotify.config');
 require('./configs/hbs.config');
 
 
