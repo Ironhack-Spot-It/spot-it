@@ -4,8 +4,7 @@ const messageSchema = new mongoose.Schema({
     from: String,
     to: String,
     body: String,
-    //createdAt: new Date()
-});
+}, { timestamps: true });
 
-const Msg = mongoose.model('Msg', messageSchema);
+const Msg = mongoose.model('Message', messageSchema);
 module.exports = Msg;
