@@ -19,9 +19,20 @@ module.exports.showMessages = (req, res, next) => {
     Msg.find({ to: req.user.name})
         .then(allMessages => {
             console.log('MENSAHITOOOO', allMessages);
+            const senders = allMessages.map((msg)=> {
+                return msg.from
+            })
+
+            const allSenders = senders.filter(function(item, pos) {
+                return senders.indexOf(item) == pos;
+            })
+
+            console.log(allSenders);
+
             res.render('users/inbox', 
             { 
                 messages: allMessages,
+                senders: allSenders,
                 user: req.user
             })
         })
