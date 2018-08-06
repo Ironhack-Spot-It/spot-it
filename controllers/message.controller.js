@@ -4,12 +4,12 @@ const Msg = require('../models/message.model');
 
 module.exports.sendMessage = (req, res, next) => {
     const msg = new Msg({
-        from: req.user._id,
-        to: 'cyber_2.0',
+        from: req.user.name,
+        to: req.params.name,
         body: req.body.message
     });
 
-    console.log('NUESTRO PRIMER MENSAJE: ', msg);
+    console.log('BODY MESSAGE: ', req.params);
 
     msg.save();
   res.redirect(`/user/${req.user.name}/messages`);
