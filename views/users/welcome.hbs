@@ -1,28 +1,12 @@
-<h1>Hola {{user.name}}</h1>
+<header>
+    <h1>Hola {{user.name}}</h1>
+    <img src="{{user.image}}" class="profile__image" alt="{{user.name}}">
+</header>
 
-<img src="{{user.image}}" width="200" alt="">
 
-<h2>MAtches :D</h2>
+{{> user/matches }}
 
-{{#each matches.byArtist as |crush|}}
-<a href="user/{{crush.name}}">
-    <p>By Artists</p>
-    <p>{{ crush.email }}</p>
-</a>
-{{/each}}
-
-{{#each matches.byTracks as |crush|}}
-    <p>By Track</p>
-    <p>{{ crush.email }}</p>
-{{/each}}
-
-{{#each matches.byGenres as |crush|}}
-    <p>By Genre</p>
-    <p>{{ crush.email }}</p>
-    
-{{/each}}
-
-{{> message }}
+{{> user/sendmessage }}
 
 <header>
     <h2>User's top tracks</h2>

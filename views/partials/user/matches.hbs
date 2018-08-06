@@ -1,0 +1,55 @@
+<h2>Matches :D</h2>
+
+<h3>By Artists</h3>
+
+<section class="d-flex flex-wrap">
+    {{#each matches.byArtist as |crush|}}
+    <article class="item-card">
+        <a href="/user/{{crush.name}}">
+        <img class="item-card__img" src="{{crush.image}}" alt="{{crush.name}}">
+        <div class="item-card__content">
+            <h5 class="item-card__title">{{crush.name}}</h5>
+            {{!-- TODO: aquí podemos poner por qué es el match
+            <p class="item-card__text">{{track.artist}}</p> --}}
+        </div>
+        </a>
+    </article>
+    {{/each}}
+</section>
+
+<h3>By Track</h3>
+
+<section class="d-flex flex-wrap">
+    {{#each matches.byTracks as |crush|}}
+    <article class="item-card">
+        <a href="/user/{{crush.name}}">
+        <img class="item-card__img" src="{{crush.image}}" alt="{{crush.name}}">
+        <div class="item-card__content">
+            <h5 class="item-card__title">{{crush.name}}</h5>
+            {{!-- TODO: aquí podemos poner por qué es el match
+            <p class="item-card__text">{{track.artist}}</p> --}}
+        </div>
+        </a>
+    </article>
+    {{/each}}
+</section>
+
+<h3>By Genre</h3>
+
+{{#each matches.byGenres as |crush|}}
+    <section class="d-flex flex-wrap">
+    {{#each matches.byGenre as |crush|}}
+    <article class="item-card">
+        <a href="/user/{{crush.name}}">
+        <img class="item-card__img" src="{{crush.image}}" alt="{{crush.name}}">
+        <div class="item-card__content">
+            <h5 class="item-card__title">{{crush.name}}</h5>
+            {{!-- TODO: aquí podemos poner por qué es el match
+            <p class="item-card__text">{{track.artist}}</p> --}}
+        </div>
+        </a>
+    </article>
+    {{/each}}
+</section>
+    
+{{/each}}
