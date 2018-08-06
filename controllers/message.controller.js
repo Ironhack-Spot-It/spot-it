@@ -19,7 +19,11 @@ module.exports.showMessages = (req, res, next) => {
     Msg.find({ to: req.user.name})
         .then(allMessages => {
             console.log('MENSAHITOOOO', allMessages);
-            res.render('users/inbox', { messages: allMessages })
+            res.render('users/inbox', 
+            { 
+                messages: allMessages,
+                user: req.user
+            })
         })
         .catch(error => {
             next(error)
