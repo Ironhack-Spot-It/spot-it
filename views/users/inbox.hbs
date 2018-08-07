@@ -1,4 +1,4 @@
-Aquí están tus mensajes
+<a href="/user/{{user.name}}" class="btn btn-primary">Back to profile</a>
 
 <div class="list-group">
 
@@ -9,8 +9,20 @@ Aquí están tus mensajes
       <small>{{ms.from}}</small>
     </div>
     <p class="mb-1">{{ms.body}}</p>
-    <small>.</small>
+    <small>{{ms.to}}</small>
   </a>
 {{/each}}
 </div>
 
+THE SENDERS
+{{!-- {{user}} --}}
+{{#each senders as |sender|}}
+    <a href="/user/{{user.name}}/messages/{{sender}}" class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">Mensaje</h5>
+      <small>{{sender}}</small>
+    </div>
+    <p class="mb-1">{{ms.body}}</p>
+    <small>{{sender}}</small>
+  </a>
+{{/each}}

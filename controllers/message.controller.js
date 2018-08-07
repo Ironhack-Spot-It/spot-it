@@ -4,24 +4,36 @@ const Msg = require('../models/message.model');
 
 module.exports.sendMessage = (req, res, next) => {
     const msg = new Msg({
-        from: req.user._id,
-        to: 'cyber_2.0',
+        from: req.user.name,
+        to: req.params.name,
         body: req.body.message
     });
 
-    console.log('NUESTRO PRIMER MENSAJE: ', msg);
+    console.log('BODY MESSAGE: ', req.params);
 
     msg.save();
   res.redirect(`/user/${req.user.name}/messages`);
 };
 
-module.exports.showMessages = (req, res, next) => {
+module.exports.showInbox = (req, res, next) => {
     Msg.find({ to: req.user.name})
         .then(allMessages => {
-            console.log('MENSAHITOOOO', allMessages);
-            res.render('users/inbox', { messages: allMessages })
+            let senders = allMessages.map((msg)=> msg.from);
+            let allSenders = senders.filter((item, pos) =>
+                senders.indexOf(item) == pos);
+
+            res.render('users/inbox', 
+            { 
+                messages: allMessages,
+                senders: allSenders,
+                user: req.user
+            })
         })
         .catch(error => {
             next(error)
         })
+}
+
+module.exports.showMessage = (req, res, next) => {
+    res.render('');
 }
