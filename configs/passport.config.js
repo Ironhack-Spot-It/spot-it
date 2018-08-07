@@ -23,7 +23,7 @@ module.exports.setup = (passport) => {
   passport.use(new SpotifyStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: "/auth/spotify/cb"
+    callbackURL: process.env.CALLBACK_URL || "/auth/spotify/cb"
   },
     function (accessToken, refreshToken, expires_in, profile, next) {
       User.findOne({ 'social.spotifyId': profile.id })

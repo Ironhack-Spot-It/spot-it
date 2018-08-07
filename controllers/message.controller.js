@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Msg = require('../models/message.model');
+const moment = require('moment');
 
 
 module.exports.sendMessage = (req, res, next) => {
@@ -46,9 +47,15 @@ module.exports.showMessage = (req, res, next) => {
     // console.log('user', req.user);
     Msg.find({$or: [{ from: req.params.sender, to: req.user.name}, {from: req.user.name, to: req.params.sender}]})
         .then (messages => {
-            console.log('HAY SUERTE??: ', messages)
+            let sentTime = messages.map((messages) => { 
+               let ms = messages.createdAt;
+               return moment().to(ms);
+            });
+
+            console.log('TIME COHONE: ', sentTime);
             res.render('users/message', {
-                message: messages
+                message: messages, 
+                time: sentTime
             })
             
         })
