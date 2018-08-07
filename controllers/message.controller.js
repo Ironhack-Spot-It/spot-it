@@ -16,6 +16,7 @@ module.exports.sendMessage = (req, res, next) => {
 };
 
 module.exports.showInbox = (req, res, next) => {
+    console.log('PARÁMETROS: ', req.params);
     Msg.find({ to: req.user.name})
         .then(allMessages => {
             let senders = allMessages.map((msg)=> msg.from);
@@ -34,6 +35,7 @@ module.exports.showInbox = (req, res, next) => {
         })
 }
 
-module.exports.showMessage = (req, res, next) => {
-    res.render('');
+module.exports.showMessage = (req, res, next) => {-
+    console.log('HEREEEE: ', req.params);
+    res.render('users/welcome');
 }
