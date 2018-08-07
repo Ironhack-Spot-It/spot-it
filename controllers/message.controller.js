@@ -15,19 +15,12 @@ module.exports.sendMessage = (req, res, next) => {
   res.redirect(`/user/${req.user.name}/messages`);
 };
 
-module.exports.showMessages = (req, res, next) => {
+module.exports.showInbox = (req, res, next) => {
     Msg.find({ to: req.user.name})
         .then(allMessages => {
-            console.log('MENSAHITOOOO', allMessages);
-            const senders = allMessages.map((msg)=> {
-                return msg.from
-            })
-
-            const allSenders = senders.filter(function(item, pos) {
-                return senders.indexOf(item) == pos;
-            })
-
-            console.log(allSenders);
+            let senders = allMessages.map((msg)=> msg.from);
+            let allSenders = senders.filter((item, pos) =>
+                senders.indexOf(item) == pos);
 
             res.render('users/inbox', 
             { 
@@ -39,4 +32,8 @@ module.exports.showMessages = (req, res, next) => {
         .catch(error => {
             next(error)
         })
+}
+
+module.exports.showMessage = (req, res, next) => {
+    res.render('');
 }
