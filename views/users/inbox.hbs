@@ -2,7 +2,7 @@
 
 <div class="list-group">
 
-{{#each messages as |ms|}}
+{{!-- {{#each messages as |ms|}}
   <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">Mensaje</h5>
@@ -12,13 +12,12 @@
     <small>{{ms.to}}</small>
   </a>
 {{/each}}
-</div>
+</div> --}}
 
 THE SENDERS
 {{!-- {{user}} --}}
 {{#each senders as |sender|}}
-    {{!-- <a href="/user/cyber_2.0/messages/{{sender}}" class="list-group-item list-group-item-action flex-column align-items-start"> --}}
-    <a href="/user/{{../user.name}}/messages/{{sender}}" class="list-group-item list-group-item-action flex-column align-items-start"></a>
+    <a href="/user/{{../user.name}}/messages/{{sender}}" class="list-group-item list-group-item-action flex-column align-items-start">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">Mensaje</h5>
       <small>{{sender}}</small>

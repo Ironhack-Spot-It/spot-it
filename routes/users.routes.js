@@ -19,7 +19,7 @@ router.get('/:name/messages',
     messageController.showInbox);
 
 //TODO FIX THIS BULLSHIT
-router.get(`/cyber_2.0/messages/estita`,
+router.get('/:name/messages/:sender',
     authMiddleware.isAuthenticated,
     messageController.showMessage);
 

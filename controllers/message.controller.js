@@ -16,26 +16,46 @@ module.exports.sendMessage = (req, res, next) => {
 };
 
 module.exports.showInbox = (req, res, next) => {
-    console.log('PARÁMETROS: ', req.params);
-    Msg.find({ to: req.user.name})
-        .then(allMessages => {
-            let senders = allMessages.map((msg)=> msg.from);
-            let allSenders = senders.filter((item, pos) =>
-                senders.indexOf(item) == pos);
-
-            res.render('users/inbox', 
-            { 
-                messages: allMessages,
-                senders: allSenders,
-                user: req.user
+    if (req.user.name === req.params.name) {
+        Msg.find({ to: req.user.name})
+            .then(allMessages => {
+                let senders = allMessages.map((msg)=> msg.from);
+                let allSenders = senders.filter((item, pos) =>
+                    senders.indexOf(item) == pos);
+    
+                res.render('users/inbox', 
+                { 
+                    messages: allMessages,
+                    senders: allSenders,
+                    user: req.user
+                })
             })
+            .catch(error => {
+                next(error)
+            })
+    }
+    else {
+        //TODO: ¿A dónde le redirigimos?
+        res.redirect('/');
+    }
+}
+
+module.exports.showMessage = (req, res, next) => {
+    if (req.params.name === req.user.name) {
+    // console.log('params: ', req.params);   
+    // console.log('user', req.user);
+    Msg.find({$or: [{ from: req.params.sender, to: req.user.name}, {from: req.user.name, to: req.params.sender}]})
+        .then (messages => {
+            console.log('HAY SUERTE??: ', messages)
+            res.render('users/message', {
+                message: messages
+            })
+            
         })
         .catch(error => {
             next(error)
-        })
-}
+        });
 
-module.exports.showMessage = (req, res, next) => {-
-    console.log('HEREEEE: ', req.params);
-    res.render('users/welcome');
-}
+    } else { res.redirect('/');
+} }
+
