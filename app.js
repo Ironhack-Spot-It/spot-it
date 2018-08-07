@@ -9,6 +9,7 @@ const passport = require('passport');
 const session = require('express-session')
 const sassMiddleware = require('node-sass-middleware');
 
+
 const indexRouter = require('./routes/index.routes');
 const authRouter = require('./routes/auth.routes');
 const usersRouter = require('./routes/users.routes');
@@ -37,6 +38,7 @@ app.use(
     prefix: '/stylesheets'
   })
 );
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
   secret: process.env.COOKIE_SECRET || 'SuperSecret - (Change it)',
