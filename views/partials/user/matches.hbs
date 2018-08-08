@@ -1,8 +1,12 @@
 <h1>¡Descubre con quién conectas!</h1>
+<span class="separator"></span>
 
+
+
+
+{{#if matches.byGenre}}
 <h4>Os va el mismo estilo de música</h4>
 
-{{#each matches.byGenres as |crush|}}
     <section class="d-flex flex-wrap">
     {{#each matches.byGenre as |crush|}}
     <article class="item-card">
@@ -17,9 +21,10 @@
     </article>
     {{/each}}
 </section>
-    
-{{/each}}
+{{/if}}
 
+
+{{#if matches.byArtist}}
 <h4>Escuchan los mismos artistas que tú</h4>
 
 <section class="d-flex flex-wrap">
@@ -36,7 +41,10 @@
     </article>
     {{/each}}
 </section>
+{{/if}}
 
+
+{{#if matches.byTracks}}
 <h4>Os gustan las mismas canciones</h4>
 
 <section class="d-flex flex-wrap">
@@ -53,4 +61,4 @@
     </article>
     {{/each}}
 </section>
-
+{{/if}}
