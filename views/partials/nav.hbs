@@ -1,39 +1,12 @@
 {{#if session}}
-<div class="">
-	<nav class="navbar-dark">
-		<button class="btn" type="button" id="dropdownMenuBoton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<!-- Collapsible content -->
-		<div class="dropdown-menu" aria-labelledby="dropdownMenuBoton">
-			<ul class="">
-				<li class="">
-					<a class="" href="/user/{{user.name}}">My profile</a>
-				</li>
-				<li class="">
-					<a class="" href="#">Find people</a>
-				</li>
-				<li class="">
-					<a class="" href="/user/{{user.name}}/messages">Messages</a>
-				</li>
-				{{!-- logout --}}
-				<li class="nav-item">
-					<a class="nav-link" href="/user/logout">Logout</a>
-				</li>
-			</ul>
-		</div>
+<div>
+	<nav>
+		<ul class="main-menu">
+			<a href="#"><li class="main-menu__icon"><i class="fas fa-users"></i></li></a>
+			<a href="/user/{{user.name}}/messages"><li class="main-menu__icon"><i class="fas fa-comments"></i></li></a>
+			<a href="/user/me"><li class="main-menu__icon"><i class="fas fa-play"></i></li></a>
+			<a href="/user/logout"><li class="main-menu__icon"><i class="fas fa-power-off"></i></li></a>
+		</ul>
 	</nav>
 </div>
 {{/if}}
- 
-{{!-- <div class="dropdown">
-	<button class="btn btn-secondary dropdown-toggle navbar-dark" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
-	 aria-expanded="false">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-	<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-		<button class="dropdown-item" type="button">Action</button>
-		<button class="dropdown-item" type="button">Another action</button>
-		<button class="dropdown-item" type="button">Something else here</button>
-	</div>
-</div> --}}
