@@ -5,6 +5,7 @@ const messageController = require('../controllers/message.controller');
 const authMiddleware = require('../middlewares/auth.middleware');
 
 
+router.get('/logout', userController.delete);
 
 router.get('/:name',
     authMiddleware.isAuthenticated,
@@ -22,5 +23,9 @@ router.get('/:name/messages',
 router.get('/:name/messages/:sender',
     authMiddleware.isAuthenticated,
     messageController.showMessage);
+
+
+
+
 
 module.exports = router;

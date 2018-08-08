@@ -47,15 +47,15 @@ module.exports.showMessage = (req, res, next) => {
     // console.log('user', req.user);
     Msg.find({$or: [{ from: req.params.sender, to: req.user.name}, {from: req.user.name, to: req.params.sender}]})
         .then (messages => {
-            let sentTime = messages.map((messages) => { 
-               let ms = messages.createdAt;
-               return moment().to(ms);
-            });
+            // let sentTime = messages.map((messages) => { 
+            //    let ms = messages.createdAt;
+            //    return moment().to(ms);
+            // });
 
-            console.log('TIME COHONE: ', sentTime);
+            // console.log('TIME COHONE: ', sentTime);
             res.render('users/message', {
                 message: messages, 
-                time: sentTime
+                // time: sentTime
             })
             
         })
