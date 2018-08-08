@@ -23,4 +23,14 @@ router.get('/:name/messages/:sender',
     authMiddleware.isAuthenticated,
     messageController.showMessage);
 
+
+
+// LOGOUT
+
+// router.get('/delete', userController.delete);
+
+// router.post('/:name/delete', 
+//     authMiddleware.isAuthenticated,
+//     userController.doDelete);
+
 module.exports = router;

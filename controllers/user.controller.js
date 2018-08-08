@@ -27,5 +27,22 @@ module.exports.welcome = (req, res, next) => {
     
 };
 
+// Logout
 
+module.exports.delete = (req, res, next) => {
+    req.logout();
+    res.redirect('/');
+  }
+
+// module.exports.doDelete = (req, res, next) => {
+//     User.findByIdAndRemove(req.params.id)
+//       .then(user => {
+//         if (!user) {
+//           next(createError(404, 'User not found'));
+//         } else {
+//           res.redirect('/');
+//         }
+//       })
+//       .catch(error => next(error));
+//   }
 

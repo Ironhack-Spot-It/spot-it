@@ -3,15 +3,12 @@
     <img src="{{user.image}}" class="profile__image" alt="{{user.name}}">
 </header>
 
-<a href="/user/{{user.name}}/messages" class="btn btn-primary">Go to your inbox</a>
-
+<a href="/user/{{user.name}}/messages" class="btn btn-primary">Ir a mi bandeja de entrada</a>
 
 {{> user/matches }}
-
-{{> user/sendmessage }}
-
 <header>
-    <h2>User's top tracks</h2>
+    <h2>¡Disfruta con tus favoritos!</h2>
+    <h4>Tus canciones más escuchadas</h4>
     <span class="separator"></span>
 </header>
 <section class="d-flex flex-wrap">
@@ -29,7 +26,7 @@
 </section>
 
 <header>
-    <h2>Most listened playlists</h2>
+    <h4>Tus playlists más escuchadas</h4>
     <span class="separator"></span>
 </header>
 <section class="d-flex flex-wrap">
@@ -46,7 +43,7 @@
 </section>
 
 <header>
-    <h2>Following artists</h2>
+    <h4>Los artístas a los que sigues</h4>
     <span class="separator"></span>
 </header>
 <section class="d-flex flex-wrap">

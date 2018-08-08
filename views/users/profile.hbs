@@ -1,2 +1,58 @@
-EL PUTO PROFILE DE MIERDA 
-{{user}}
+<header>
+    <h1>¿Quieres saber más sobre {{user.name}}?</h1>
+    <img src="{{user.image}}" class="profile__image" alt="{{user.name}}">
+</header>
+
+{{> user/sendmessage }}
+
+<header>
+    <h2>Estas son sus top 10 canciones más escuchadas</h2>
+    <span class="separator"></span>
+</header>
+<section class="d-flex flex-wrap">
+    {{#each user.topTracks as |track|}}
+    <article class="item-card">
+        <a href="{{track.url}}" target="_blank">
+        <img class="item-card__img" src="{{track.imgUrl}}" alt="{{track.name}}">
+        <div class="item-card__content">
+            <h5 class="item-card__title">{{track.name}}</h5>
+            <p class="item-card__text">{{track.artist}}</p>
+        </div>
+        </a>
+    </article>
+    {{/each}}
+</section>
+
+<header>
+    <h2>Estas son sus playlists favoritas</h2>
+    <span class="separator"></span>
+</header>
+<section class="d-flex flex-wrap">
+    {{#each user.playlists as |play|}}
+    <article class="item-card">
+        <a href="{{play.url}}" target="_blank">
+        <img class="item-card__img" src="{{play.imgUrl}}" alt="{{play.name}}">
+        <div class="item-card__content">
+            <h5 class="item-card__title">{{play.name}}</h5>
+        </div>
+        </a>
+    </article>
+    {{/each}}
+</section>
+
+<header>
+    <h2>Descubre a qué artistas sigue</h2>
+    <span class="separator"></span>
+</header>
+<section class="d-flex flex-wrap">
+    {{#each user.followingArtists as |artist|}}
+    <article class="item-card">
+        <a href="{{artist.url}}" target="_blank">
+        <img class="item-card__img" src="{{artist.imgUrl}}" alt="{{artist.name}}">
+        <div class="item-card__content">
+            <h5 class="item-card__title">{{artist.name}}</h5>
+        </div>
+        </a>
+    </article>
+    {{/each}}
+</section>

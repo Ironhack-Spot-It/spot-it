@@ -1,26 +1,39 @@
 {{#if session}}
 <div class="">
-    <nav class="navbar navbar-dark">
-        <button class="btn" type="button" id="dropdownMenuBoton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <!-- Collapsible content -->
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuBoton">
-            <!-- Links -->
-            <ul class=" ">
-                <li class="">
-                    <a class="" href="#">My profile</a>
-                </li>
-                <li class="">
-                    <a class="" href="#">Find people</a>
-                </li>
-                <li class="">
-                    <a class="" href="#">Messages</a>
-                </li>
-            </ul>
-            <!-- Links -->
-        </div>
-        <!-- Collapsible content -->
-    </nav>
+	<nav class="navbar-dark">
+		<button class="btn" type="button" id="dropdownMenuBoton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<!-- Collapsible content -->
+		<div class="dropdown-menu" aria-labelledby="dropdownMenuBoton">
+			<ul class="">
+				<li class="">
+					<a class="" href="/user/{{user.name}}">My profile</a>
+				</li>
+				<li class="">
+					<a class="" href="#">Find people</a>
+				</li>
+				<li class="">
+					<a class="" href="/user/{{user.name}}/messages">Messages</a>
+				</li>
+				{{!-- logout --}}
+				<li class="nav-item">
+					<a class="nav-link" href="/user/sessions/delete">Logout</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
 </div>
 {{/if}}
+ 
+{{!-- <div class="dropdown">
+	<button class="btn btn-secondary dropdown-toggle navbar-dark" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
+	 aria-expanded="false">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+		<button class="dropdown-item" type="button">Action</button>
+		<button class="dropdown-item" type="button">Another action</button>
+		<button class="dropdown-item" type="button">Something else here</button>
+	</div>
+</div> --}}
