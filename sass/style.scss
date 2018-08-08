@@ -29,7 +29,7 @@ a {
     }
 }
 
-h1 {
+h1, h2, h3, h4 {
     font-family: "AlteHaasGroteskBold", "Arial", sans-serif;
 } 
 
@@ -51,9 +51,21 @@ h1, h2, h3, h4 {
     background-color: $color-primary;
 }
 
+.bg-spot-it {
+    background-color: $color-primary;
+}
 
+.bg-spotify {
+    background-color: $color-spotify;
+}
 
+.color-spot-it {
+    color: $color-primary;
+}
 
+.color-spotify {
+    color: $color-spotify;
+}
 
 .main-menu {
     background-color: $color-primary;
