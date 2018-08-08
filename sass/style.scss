@@ -62,9 +62,12 @@ h1, h2, h3, h4 {
         font-size: 2em;
         color: #000000;
     }
+
+    &__profile {
+        width: 40px;
+        border-radius: 50%;
+    }
 }
-
-
 
 .img-home {
     width: 200px;
