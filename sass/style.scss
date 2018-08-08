@@ -55,7 +55,34 @@ h1, h2, h3, h4 {
 
 
 
-// .dropdown-menu {
-//     display: block;
-//     background-color: none;
-// }
+.main-menu {
+    background-color: $color-primary;
+    display: flex;
+    flex-direction: row;
+    justify-content:  space-evenly;
+
+    a {
+        display: block;
+        width: 25%;
+        text-align: center;
+        padding: 1em 0;
+        &:hover {
+            background-color: darken($color-primary, 10%)
+        }
+    }
+
+    &__icon {
+        font-size: 2em;
+        color: #000000;
+    }
+
+    &__profile {
+        width: 40px;
+        border-radius: 50%;
+    }
+}
+
+.img-home {
+    width: 200px;
+    margin-top: 10%;
+}
