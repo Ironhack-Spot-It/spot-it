@@ -5,6 +5,7 @@ const messageController = require('../controllers/message.controller');
 const authMiddleware = require('../middlewares/auth.middleware');
 
 
+router.get('/logout', userController.delete);
 
 router.get('/:name',
     authMiddleware.isAuthenticated,
@@ -25,12 +26,6 @@ router.get('/:name/messages/:sender',
 
 
 
-// LOGOUT
 
-// router.get('/delete', userController.delete);
-
-// router.post('/:name/delete', 
-//     authMiddleware.isAuthenticated,
-//     userController.doDelete);
 
 module.exports = router;
