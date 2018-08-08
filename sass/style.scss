@@ -5,6 +5,7 @@
 //COMPONENTS
 @import 'components/footer';
 @import 'components/item-cards';
+@import 'components/ribbon';
 
 //CUSTOM STYLES
 @import 'profile';
@@ -20,10 +21,22 @@ body {
     background-color: #000000;
     color: #fff;
 }
-    
+   
+a {
+    color: $color-primary;
+    &:hover {
+        color: $color-primary;
+    }
+}
+
 h1 {
     font-family: "AlteHaasGroteskBold", "Arial", sans-serif;
 } 
+
+h1, h2, h3, h4 {
+    margin: 20px 0;
+}
+
 
 .spotify-button {
     border-radius: 50px;
@@ -38,9 +51,9 @@ h1 {
     background-color: $color-primary;
 }
 
-h1, h2, h3, h4 {
-    margin: 20px
-}
+
+
+
 
 // .dropdown-menu {
 //     display: block;
