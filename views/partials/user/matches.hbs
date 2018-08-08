@@ -1,56 +1,17 @@
 <h1>¡Descubre con quién conectas!</h1>
+<span class="separator"></span>
 
-<h4>Os va el mismo estilo de música</h4>
-
-{{#each matches.byGenres as |crush|}}
-    <section class="d-flex flex-wrap">
-    {{#each matches.byGenre as |crush|}}
-    <article class="item-card">
-        <a href="/user/{{crush.name}}">
-        <img class="item-card__img" src="{{crush.image}}" alt="{{crush.name}}">
-        <div class="item-card__content">
-            <h5 class="item-card__title">{{crush.name}}</h5>
-            {{!-- TODO: aquí podemos poner por qué es el match
-            <p class="item-card__text">{{track.artist}}</p> --}}
-        </div>
-        </a>
-    </article>
-    {{/each}}
-</section>
+{{> user/matchGenres}}
     
-{{/each}}
+{{> user/matchArtist}}
 
-<h4>Escuchan los mismos artistas que tú</h4>
+{{> user/matchTrack}}
 
-<section class="d-flex flex-wrap">
-    {{#each matches.byArtist as |crush|}}
-    <article class="item-card">
-        <a href="/user/{{crush.name}}">
-        <img class="item-card__img" src="{{crush.image}}" alt="{{crush.name}}">
-        <div class="item-card__content">
-            <h5 class="item-card__title">{{crush.name}}</h5>
-            {{!-- TODO: aquí podemos poner por qué es el match
-            <p class="item-card__text">{{track.artist}}</p> --}}
-        </div>
-        </a>
-    </article>
-    {{/each}}
-</section>
+{{#unless matches}}
+    <p>Vaya, parece que no tienes coincidencias en gustos con ninguno de nuestros usuarios :(</p>
+    <p>¡Eso es porque eres muy especial!</p>
+    <p>Pero no importa, disfruta de la música y pronto encontraremos personas para ti ;)</p>
+{{/unless}}
 
-<h4>Os gustan las mismas canciones</h4>
 
-<section class="d-flex flex-wrap">
-    {{#each matches.byTracks as |crush|}}
-    <article class="item-card">
-        <a href="/user/{{crush.name}}">
-        <img class="item-card__img" src="{{crush.image}}" alt="{{crush.name}}">
-        <div class="item-card__content">
-            <h5 class="item-card__title">{{crush.name}}</h5>
-            {{!-- TODO: aquí podemos poner por qué es el match
-            <p class="item-card__text">{{track.artist}}</p> --}}
-        </div>
-        </a>
-    </article>
-    {{/each}}
-</section>
 

@@ -1,0 +1,17 @@
+{{#if matches.byGenre}}
+<h4>Os va el mismo estilo de música</h4>
+    <section class="d-flex flex-wrap">
+    {{#each matches.byGenre as |crush|}}
+    <article class="item-card">
+        <a href="/user/{{crush.name}}">
+        <img class="item-card__img" src="{{crush.image}}" alt="{{crush.name}}">
+        <div class="item-card__content">
+            <h5 class="item-card__title">{{crush.name}}</h5>
+            {{!-- TODO: aquí podemos poner por qué es el match
+            <p class="item-card__text">{{track.artist}}</p> --}}
+        </div>
+        </a>
+    </article>
+    {{/each}}
+</section>
+{{/if}}

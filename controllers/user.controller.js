@@ -34,15 +34,3 @@ module.exports.delete = (req, res, next) => {
     res.redirect('/');
   }
 
-// module.exports.doDelete = (req, res, next) => {
-//     User.findByIdAndRemove(req.params.id)
-//       .then(user => {
-//         if (!user) {
-//           next(createError(404, 'User not found'));
-//         } else {
-//           res.redirect('/');
-//         }
-//       })
-//       .catch(error => next(error));
-//   }
-

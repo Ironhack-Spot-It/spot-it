@@ -1,6 +1,28 @@
 @import 'general/vars';
 
-.profile__image {
-    max-width: 200px;
-    border-radius: 50%;
+.profile {
+    > header {
+        //margin-top: 7%;
+    }
+    &__header {
+        display: flex; 
+        flex-direction: column; 
+        flex-wrap: wrap;
+        align-items: center;
+        padding: 5% 0;
+        background-image: url('/images/bgs/bg.jpg');
+    }
+    &__image {
+        max-width: 200px;
+        border: 5px solid $color-white;
+        border-radius: 50%;
+    }
+
+    &__inbox {
+        text-align: center;
+        font-size: 30px;
+        :hover {
+            color: darken( $color-primary, 10% )
+        }
+    }
 }
