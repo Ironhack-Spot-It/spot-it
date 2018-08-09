@@ -10,16 +10,40 @@ module.exports.sendMessage = (req, res, next) => {
         to: req.params.name,
         body: req.body.message
     });
-
-    console.log('BODY MESSAGE: ', req.params);
-
     msg.save();
     res.redirect(`/user/${req.user.name}/messages`);
 };
 
 module.exports.showInbox = (req, res, next) => {
     if (req.user.name === req.params.name) {
-        Msg.find({ to: req.user.name })
+        Msg.find({  $or:[ {to: req.user.name}, {from: req.user.name} ] })
+            .then
+            (allMessages => {
+                console.log('TODOS LOS MSG', allMessages);
+                let senders = allMessages.map((msg)=> msg.from);
+                let allSenders = senders.filter((item, pos) =>
+                    senders.indexOf(item) == pos);
+    
+                res.render('users/inbox', 
+                { 
+                    messages: allMessages,
+                    senders: allSenders,
+                    user: req.user
+                })
+            })
+            .catch(error => {
+                next(error)
+            }) 
+    }
+    else {
+        //TODO: ¿A dónde le redirigimos?
+        res.redirect('/');
+    }
+}
+
+module.exports.showInbox = (req, res, next) => {
+    if (req.user.name === req.params.name) {
+        Msg.find({ to: req.user.name})
             .then(allMessages => {
                 //let senders = allMessages.map((msg)=> msg.from);
                 const senderNames = allMessages.map((msg) => msg.from);

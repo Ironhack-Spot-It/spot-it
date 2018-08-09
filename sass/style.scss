@@ -50,6 +50,10 @@ h4 {
     font-style: italic;
 }
 
+.nav-logo {
+    background-color: #000000;
+}
+
 .spotify-button {
     border-radius: 50px;
     background-color: $color-spotify;
@@ -79,6 +83,38 @@ h4 {
     color: $color-spotify;
 }
 
+.login-info {
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 1.5em;
+
+    &__box {
+    width: 50%;
+    text-align: center;
+    padding: 5% 0;
+    background-size: cover; 
+    font-weight: 800;
+    }
+
+    &__boxtop {
+        background-color: $color-primary;
+        border: solid 3px #000000;
+    }
+
+    &__boxcenter {
+        background-color: $color-secondary;
+        border-right: solid 3px #fff;
+    }
+
+    &__boxbottom {
+        background-color: $color-spotify;
+        border: solid 3px #000000;
+    }
+
+}
+
 .main-menu {
     background-color: $color-primary;
     display: flex;
@@ -91,7 +127,7 @@ h4 {
         text-align: center;
         padding: 1em 0;
         &:hover {
-            background-color: darken($color-primary, 10%)
+            background-color: lighten($color-primary, 20%)
         }
     }
 
@@ -120,4 +156,22 @@ h4 {
 
 .user-image {
     border-radius: 50%;
+}
+
+.footer {
+    background-color: $color-primary;
+    display: flex;
+    flex-direction: row;
+    justify-content:  space-evenly;
+    
+    &__ul {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__li {
+        display: flex;
+        flex-direction: row;
+        list-style-type: none;
+    }
 }
