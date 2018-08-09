@@ -14,17 +14,17 @@ module.exports.sendMessage = (req, res, next) => {
     console.log('BODY MESSAGE: ', req.params);
 
     msg.save();
-  res.redirect(`/user/${req.user.name}/messages`);
+    res.redirect(`/user/${req.user.name}/messages`);
 };
 
 module.exports.showInbox = (req, res, next) => {
     if (req.user.name === req.params.name) {
-        Msg.find({ to: req.user.name})
+        Msg.find({ to: req.user.name })
             .then(allMessages => {
                 //let senders = allMessages.map((msg)=> msg.from);
-                const senderNames = allMessages.map((msg)=> msg.from);
+                const senderNames = allMessages.map((msg) => msg.from);
 
-                User.find({ name: { $in: senderNames }})
+                User.find({ name: { $in: senderNames } })
                     .then((users) => {
                         res.render('users/inbox', {
                             senders: users,
@@ -45,20 +45,29 @@ module.exports.showInbox = (req, res, next) => {
 
 module.exports.showMessage = (req, res, next) => {
     if (req.params.name === req.user.name) {
-    Msg.find({$or: [{ from: req.params.sender, to: req.user.name}, {from: req.user.name, to: req.params.sender}]})
-        .then (messages => {
+        Msg.find({ $or: [{ from: req.params.sender, to: req.user.name }, { from: req.user.name, to: req.params.sender }] })
+            .then(messages => {
 
-            console.log('SENDER: ', messages)
+                User.find({ name: req.user.name })
+                    .then((sender) => {
+                        console.log('holi', sender[0].name)
+                        res.render('users/message', {
+                            sender: sender[0],
+                            message: messages
+                        })
 
-            res.render('users/message', {
-                message: messages
+                    })
+
+                console.log('SENDER: ', messages)
+
+
             })
-            
-        })
-        .catch(error => {
-            next(error)
-        });
+            .catch(error => {
+                next(error)
+            });
 
-    } else { res.redirect('/');
-} }
+    } else {
+        res.redirect('/');
+    }
+}
 
