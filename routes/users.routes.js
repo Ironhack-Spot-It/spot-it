@@ -19,13 +19,9 @@ router.get('/:name/messages',
     authMiddleware.isAuthenticated,
     messageController.showInbox);
 
-//TODO FIX THIS BULLSHIT
 router.get('/:name/messages/:sender',
     authMiddleware.isAuthenticated,
     messageController.showMessage);
-
-
-
 
 
 module.exports = router;
