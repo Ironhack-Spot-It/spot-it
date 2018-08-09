@@ -9,8 +9,9 @@ module.exports = (hbs) => {
     if(msg.from === user.name){
       return options.fn(this);
     } else {
-      options.inverse(this);
+      return options.inverse(this);
     }
   })
 }
+
 

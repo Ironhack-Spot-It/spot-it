@@ -1,15 +1,16 @@
 <main class="">
     <header class="text-center">
       Aquí la imagen de la persona con la que te estás escribiendo, y su nombre.
-      <img src="{{sender.image}}" alt="">
+      <img class="user-image img-medium" src="{{sender.image}}" alt="">
       <p>{{sender.name}}</p>
     </header>
 
   <div class="list-group container">
 
   {{#each message as |ms|}}
-  
-    {{#if (isMyMessage ms)}}
+    <hr>
+    {{#isMyMessage ms ../user}}
+    HOLA
     <article class="to-right list-group-item list-group-item-action flex-column align-items-start">
       <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">Mensaje</h5>
@@ -21,7 +22,7 @@
       <small>{{ms.to}}</small>
     </article>
 
-    {{/if}}
+    {{/isMyMessage}}
   {{/each}}
 
   </div> 
