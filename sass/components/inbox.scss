@@ -1,0 +1,9 @@
+@import '../general/vars';
+
+.inbox {
+    display: flex;
+    article {
+        padding: 1em; 
+        width: 50%;
+    }
+}

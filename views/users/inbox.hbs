@@ -1,13 +1,22 @@
-<a href="/user/{{user.name}}" class="btn btn-primary">Back to profile</a>
+<main class="container">
 
-THE SENDERS
-{{!-- {{user}} --}}
-{{#each senders as |sender|}}
-    <a href="/user/{{../user.name}}/messages/{{sender}}" class="list-group-item list-group-item-action flex-column align-items-start">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">Mensaje</h5>
-    </div>
-    <p class="mb-1">{{ms.body}}</p>
-    <small>{{sender}}</small>
-  </a>
-{{/each}}
+  <a href="/user/{{user.name}}" class="btn btn-primary">Back to profile</a>
+
+  THE SENDERS
+  {{!-- {{user}} --}}
+  <section class="inbox">
+  {{#each senders as |sender|}}
+
+    <article>
+      <a href="/user/{{../user.name}}/messages/{{sender.name}}" class="list-group-item list-group-item-action flex-column align-items-start">
+        <img class="user-image img-medium" src="{{sender.image}}" alt="{{sender.name}}">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">{{sender.name}}</h5>
+        </div>
+        <a href="/user/{{sender.name}}"><p class="mb-1">{{sender.name}}</p></a>
+    </a>
+    </article>
+  {{/each}}
+  </section>
+</main>
+

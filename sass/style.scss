@@ -5,7 +5,7 @@
 //COMPONENTS
 @import 'components/footer';
 @import 'components/item-cards';
-@import 'components/ribbon';
+@import 'components/inbox';
 
 //CUSTOM STYLES
 @import 'profile';
@@ -18,7 +18,7 @@
 
 body {
     font: 16px "Open Sans", Helvetica, Arial, sans-serif;
-    background-color: #000000;
+    background-color: #000;
     color: #fff;
 }
    
@@ -29,12 +29,25 @@ a {
     }
 }
 
-h1, h2, h3, h4 {
+h1, 
+h2, 
+h3, 
+h4 {
     font-family: "AlteHaasGroteskBold", "Arial", sans-serif;
 } 
 
-h1, h2, h3, h4 {
+h1, 
+h2 {
+    margin: 20px 0 8px;
+}
+ 
+h3, 
+h4 {
     margin: 20px 0;
+}
+
+h4 {
+    font-style: italic;
 }
 
 .nav-logo {
@@ -122,16 +135,27 @@ h1, h2, h3, h4 {
         font-size: 2em;
         color: #000000;
     }
-
-    &__profile {
-        width: 40px;
-        border-radius: 50%;
-    }
 }
 
 .img-home {
     width: 200px;
     margin-top: 10%;
+}
+
+.img-small {
+    max-width: 40px;
+}
+
+.img-medium {
+    max-width: 80px;
+}
+
+.img-big {
+    max-width: 200px;
+}
+
+.user-image {
+    border-radius: 50%;
 }
 
 .footer {
