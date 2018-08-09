@@ -99,14 +99,25 @@ h4 {
         font-size: 2em;
         color: #000000;
     }
-
-    &__profile {
-        width: 40px;
-        border-radius: 50%;
-    }
 }
 
 .img-home {
     width: 200px;
     margin-top: 10%;
+}
+
+.img-small {
+    max-width: 40px;
+}
+
+.img-medium {
+    max-width: 80px;
+}
+
+.img-big {
+    max-width: 200px;
+}
+
+.user-image {
+    border-radius: 50%;
 }

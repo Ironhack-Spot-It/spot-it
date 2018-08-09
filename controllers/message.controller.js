@@ -53,7 +53,8 @@ module.exports.showMessage = (req, res, next) => {
                         console.log('holi', sender[0].name)
                         res.render('users/message', {
                             sender: sender[0],
-                            message: messages
+                            message: messages, 
+                            user: req.user
                         })
 
                     })
