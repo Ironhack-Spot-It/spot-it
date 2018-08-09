@@ -24,8 +24,4 @@ router.get('/:name/messages/:sender',
     authMiddleware.isAuthenticated,
     messageController.showMessage);
 
-
-
-
-
 module.exports = router;
