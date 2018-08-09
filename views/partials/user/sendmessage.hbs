@@ -2,9 +2,9 @@
     Envíale un mensaje :)
 </div>
 
-<section class="container">
-    <form method="POST" class="d-flex flex-column flex-wrap" action="/user/{{user.name}}/messages">
+<section class="send-message">
+    <form method="POST" class="container" action="/user/{{user.name}}/messages">
         <textarea type="text" name="message" id="" cols="30" rows="10"></textarea>
-        <button type="submit" class="btn btn-primary">¡Conecta con {{user.name}}!</button>
+        <button type="submit" class="btn bg-spotify">¡Conecta con {{user.name}}!</button>
     </form>
 </section>

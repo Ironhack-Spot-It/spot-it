@@ -1,16 +1,14 @@
 @import 'general/vars';
 
 .profile {
-    > header {
-        //margin-top: 7%;
-    }
     &__header {
         display: flex; 
         flex-direction: column; 
         flex-wrap: wrap;
         align-items: center;
         padding: 5% 0;
-        background-image: url('/images/bgs/bg.jpg');
+        background-image: url('/images/bgs/bg-2.jpg');
+        background-size: cover;
     }
     &__image {
         max-width: 200px;
@@ -21,8 +19,30 @@
     &__inbox {
         text-align: center;
         font-size: 30px;
-        :hover {
+        &:hover {
             color: darken( $color-primary, 10% )
+        }
+    }
+
+    &__section {
+        margin-top: 5%;
+    }
+}
+
+
+.ribbon {
+    background-color: $color-primary;
+    color: $color-secondary;
+    font-weight: 800;
+    padding: 0.5em;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.send-message {
+    form {
+        > * {
+            display: block;
         }
     }
 }
