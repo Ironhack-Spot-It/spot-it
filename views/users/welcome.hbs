@@ -19,7 +19,7 @@
     
     <header class="container">
         <h4>Tus canciones más escuchadas</h4>
-        <span class="separator"></span>
+        {{!-- <span class="separator"></span> --}}
     </header>
     <section class="d-flex flex-wrap">
         {{#each user.topTracks as |track|}}
@@ -36,8 +36,8 @@
     </section>
 
     <header class="container">
-        <h4>Tus playlists más escuchadas</h4>
-        <span class="separator"></span>
+        <h4>Tus playlists favoritas</h4>
+        {{!-- <span class="separator"></span> --}}
     </header>
     <section class="d-flex flex-wrap">
         {{#each user.playlists as |play|}}
@@ -53,8 +53,8 @@
     </section>
 
     <header class="container">
-        <h4>Los artístas a los que sigues</h4>
-        <span class="separator"></span>
+        <h4>Los artistas a los que sigues</h4>
+        {{!-- <span class="separator"></span> --}}
     </header>
     <section class="d-flex flex-wrap">
         {{#each user.followingArtists as |artist|}}

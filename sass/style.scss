@@ -29,14 +29,26 @@ a {
     }
 }
 
-h1, h2, h3, h4 {
+h1, 
+h2, 
+h3, 
+h4 {
     font-family: "AlteHaasGroteskBold", "Arial", sans-serif;
 } 
 
-h1, h2, h3, h4 {
+h1, 
+h2 {
+    margin: 20px 0 8px;
+}
+ 
+h3, 
+h4 {
     margin: 20px 0;
 }
 
+h4 {
+    font-style: italic;
+}
 
 .spotify-button {
     border-radius: 50px;
