@@ -62,7 +62,7 @@ module.exports.setup = (passport) => {
               })
 
               
-              console.log('THESE ARE ALL GENRES: ', favouritesGenres);
+              // console.log('THESE ARE ALL GENRES: ', favouritesGenres);
               user.favoriteGenres = favouritesGenres;
 
               return user.save()
