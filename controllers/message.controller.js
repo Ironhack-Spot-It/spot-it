@@ -22,26 +22,16 @@ module.exports.showInbox = (req, res, next) => {
         Msg.find({ to: req.user.name})
             .then(allMessages => {
                 //let senders = allMessages.map((msg)=> msg.from);
-                let senders = allMessages.map((msg)=> msg.from);
+                const senderNames = allMessages.map((msg)=> msg.from);
 
-                let allSenders = senders.filter((item, pos) =>
-                    senders.indexOf(item) == pos);
+                User.find({ name: { $in: senderNames }})
+                    .then((users) => {
+                        res.render('users/inbox', {
+                            senders: users,
+                            user: req.user
+                        })
 
-                let prueba = allSenders.map((sender) => {
-                    return User.find({name: sender}, {image: 1, name: 1})
-                                .then(s => {
-                                    console.log(s);
-                                })
-                                .catch(error => next(error));
-                });
-                console.log(prueba);
-    
-                res.render('users/inbox', 
-                { 
-                    messages: allMessages,
-                    senders: allSenders,
-                    user: req.user
-                })
+                    })
             })
             .catch(error => {
                 next(error)

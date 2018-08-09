@@ -8,7 +8,8 @@
   {{#each senders as |sender|}}
 
     <article>
-      <a href="/user/{{../user.name}}/messages/{{sender}}" class="list-group-item list-group-item-action flex-column align-items-start">
+      <img src="{{sender.image}}" alt="">
+      <a href="/user/{{../user.name}}/messages/{{sender.name}}" class="list-group-item list-group-item-action flex-column align-items-start">
         <div class="d-flex w-100 justify-content-between">
           <h5 class="mb-1">Mensaje</h5>
         </div>
