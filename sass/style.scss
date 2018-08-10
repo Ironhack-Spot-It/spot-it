@@ -6,6 +6,7 @@
 @import 'components/footer';
 @import 'components/item-cards';
 @import 'components/inbox';
+@import 'components/chat';
 
 //CUSTOM STYLES
 @import 'profile';
@@ -98,6 +99,10 @@ h4 {
     color: $color-spotify;
 }
 
+.color-light {
+    color: $color-white;
+}
+
 .login-info {
     display: flex;
     flex-direction: column;
@@ -182,25 +187,4 @@ h4 {
 
 .user-image {
     border-radius: 50%;
-}
-
-.to-right {
-    background-color: $color-messages;
-    text-align: end;
-
-    &:hover {
-    background-color: $color-messages;
-    }
-
-    &__content {
-    text-align: end;
-    }
-}
-
-.to-left {
-    background-color: $color-white;
-
-    &:hover {
-    background-color:$color-white;
-    }
 }
