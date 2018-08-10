@@ -1,0 +1,19 @@
+{{#if user.topTracks}}
+<header class="container">
+    <h4>Tus canciones más escuchadas</h4>
+</header>
+<section class="d-flex flex-wrap">
+    {{#each user.topTracks as |track|}}
+    <article class="item-card">
+        <a href="{{track.url}}" target="_blank">
+            <img class="item-card__img" src="{{track.imgUrl}}" alt="{{track.name}}">
+            <div class="item-card__content">
+                <h5 class="item-card__title">{{track.name}}</h5>
+                <p class="item-card__text">{{track.artist}}</p>
+            </div>
+        </a>
+    </article>
+    {{/each}}
+</section>
+
+{{/if}}

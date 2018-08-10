@@ -1,6 +1,10 @@
 @import 'general/vars';
 
 .profile {
+    h4 {
+        margin-top: 5%;
+        margin-bottom: 3%;
+    }
     &__header {
         display: flex; 
         flex-direction: column; 

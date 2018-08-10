@@ -43,6 +43,10 @@
         width: 25%;
     }
 
+    @media #{$l-device} {
+        width: 20%;
+    }
+
     &__img {
         -webkit-transition: all 250ms ease-in-out;
         -moz-transition: all 250ms ease-in-out;
