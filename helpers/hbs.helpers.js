@@ -12,6 +12,14 @@ module.exports = (hbs) => {
       return options.inverse(this);
     }
   })
+
+  hbs.registerHelper('noMyMessage', function(msg, user, options){
+    if(msg.from !== user.name){
+      return options.fn(this);
+    } else {
+      return options.inverse(this);
+    }
+  })
 }
 
 

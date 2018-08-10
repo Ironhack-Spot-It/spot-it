@@ -1,28 +1,47 @@
 <main class="">
     <header class="text-center">
-      Aquí la imagen de la persona con la que te estás escribiendo, y su nombre.
       <img class="user-image img-medium" src="{{sender.image}}" alt="">
       <p>{{sender.name}}</p>
+FROM
+      {{message.from}}
+TO
+      {{message.to}}
+MESSAGE 
+{{message}}
+{{ms}}
+NAME
+{{name}}
+SENDER 
+{{SENDER}}
+USER
+{{USER}}
     </header>
 
   <div class="list-group container">
 
   {{#each message as |ms|}}
-    <hr>
     {{#isMyMessage ms ../user}}
-    HOLA
     <article class="to-right list-group-item list-group-item-action flex-column align-items-start">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">Mensaje</h5>
+      <div class="to-right__content d-flex w-100 justify-content-between">
+        <h6 class="mb-1">Enviado</h6>
         <small id="time">{{datetime ms.createdAt}}</small>
-
       </div>
-
       <p class="mb-1">{{ms.body}}</p>
-      <small>{{ms.to}}</small>
+      <small>Para {{ms.to}}</small>
     </article>
-
     {{/isMyMessage}}
+
+        {{#noMyMessage ms ../user}}
+    <article class="list-group-item list-group-item-action flex-column align-items-start">
+      <div class="d-flex w-100 justify-content-between">
+        <h6 class="mb-1">Recibido</h6>
+        <smalid="time">{{datetime ms.createdAt}}</small>
+      </div>
+      <p class="mb-1">{{ms.body}}</p>
+      <small>De {{ms.to}}</small>
+    </article>
+    {{/noMyMessage}}
+
   {{/each}}
 
   </div> 
