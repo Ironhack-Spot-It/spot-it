@@ -74,7 +74,7 @@ module.exports.showMessage = (req, res, next) => {
 
                 User.find({ name: req.user.name })
                     .then((sender) => {
-                        console.log('holi', sender[0].name)
+                        // console.log('holi', sender[0].name)
                         res.render('users/message', {
                             sender: sender[0],
                             message: messages, 
@@ -83,7 +83,7 @@ module.exports.showMessage = (req, res, next) => {
 
                     })
 
-                console.log('SENDER: ', messages)
+                // console.log('SENDER: ', messages)
 
 
             })

@@ -20,6 +20,11 @@ module.exports = (hbs) => {
       return options.inverse(this);
     }
   })
+
+  // hbs.registerHelper('contact', function(msg, user){
+  //   User.find({ name: user.name })
+  //   console.log('HELPER MSG', msg);
+  //   console.log('HELPER USER', user);
+  //     return user;
+  // })
 }
-
-
