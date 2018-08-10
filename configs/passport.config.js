@@ -34,7 +34,7 @@ module.exports.setup = (passport) => {
               if (!user) {
                 user = new User({
                   name: profile.username,
-                  //email: profile.emails[0].value,
+                  email: profile.emails[0].value,
                   image: setImg(profile.photos),
                   social: {
                     spotifyId: profile.id

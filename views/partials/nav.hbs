@@ -1,9 +1,9 @@
 {{#if session}}
 	<nav class="top-nav">
 		<ul class="main-menu">
-			<a href="/user/{{user.name}}"><li><img class="main-menu__profile img-small" src="/images/spotit-black-ic.png" alt=""></li></a>
-			<a href="/user/{{user.name}}/messages"><li class="main-menu__icon"><i class="fas fa-comments"></i></li></a>
-			<a href="/user/{{user.name}}"><li class="main-menu__icon"><img class="main-menu__profile img-small user-image" src="{{user.image}}" alt=""></li></a>
+			<a href="/user/{{session.name}}"><li><img class="main-menu__profile img-small" src="/images/spotit-black-ic.png" alt=""></li></a>
+			<a href="/user/{{session.name}}/messages"><li class="main-menu__icon"><i class="fas fa-comments"></i></li></a>
+			<a href="/user/{{session.name}}"><li class="main-menu__icon"><img class="main-menu__profile img-small user-image" src="{{session.image}}" alt=""></li></a>
 			<a href="/user/logout"><li class="main-menu__icon"><i class="fas fa-power-off"></i></li></a>
 		</ul>
 	</nav>
