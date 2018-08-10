@@ -25,7 +25,7 @@
         <small id="time">{{datetime ms.createdAt}}</small>
       </div>
       <p class="mb-1">{{ms.body}}</p>
-      <small>De {{ms.from}}</small>
+      <small>de {{ms.from}}</small>
     </article>
   {{/noMyMessage}}
 
@@ -33,9 +33,9 @@
   </section> 
 
   <section>
-      <form method="POST" class="container" action="/user/{{sender.name}}/messages">
-        <input type="text" name="message">
-        <button type="submit" class="btn bg-spotify">¡Conecta con {{sender.name}}!</button>
+      <form method="POST" class="chat__send container" action="/user/{{sender.name}}/messages">
+        <div class="chat__send-input"><input class="form-control" type="text" name="message" placeholder="Escribe algo..."></div>
+        <div><button type="submit" class="btn bg-spotify font-weight-bold color-light">Enviar</button></div>
     </form>
   </section>
 

@@ -9,6 +9,8 @@ $b-width: 10px;
         display: flex;
         flex-direction: column; 
         flex-wrap: wrap;
+        padding-top: 3%; 
+        padding-bottom: 3%;
     }
     &__bubble {
         position: relative;
@@ -54,4 +56,16 @@ $b-width: 10px;
             width: 60%;
         }
     }
+
+    &__send {
+        display: flex;
+        flex-direction: row; 
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        &-input {
+            width: 90%;
+        }
+    }
+    
 }
