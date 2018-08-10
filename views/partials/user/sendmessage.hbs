@@ -1,10 +1,15 @@
-<div class="ribbon text-center">
-    Envíale un mensaje :)
-</div>
+<header class="container">
+    <h2>¿Quieres conectar?</h2>
+    <span class="separator"></span>
+</header>
 
-<section class="send-message">
-    <form method="POST" class="container" action="/user/{{user.name}}/messages">
-        <textarea type="text" name="message" id="" cols="30" rows="10"></textarea>
-        <button type="submit" class="btn bg-spotify">¡Conecta con {{user.name}}!</button>
+<section class="">
+    <form method="POST" class="container" action="/user/{{sender.name}}/messages">
+        <div class="">
+            <input class="chat__send-msg form-control" type="text" name="message" placeholder="Cuéntale algo sobre ti, pregúntale, comparte...">
+        </div>
+        <div>
+            <button type="submit" class="btn bg-spotify font-weight-bold color-light">¡Contacta con {{user.name}}!</button>
+        </div>
     </form>
 </section>
