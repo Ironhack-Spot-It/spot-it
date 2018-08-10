@@ -1,30 +1,44 @@
-<main class="">
+<main class="chat">
     <header class="text-center">
-      Aquí la imagen de la persona con la que te estás escribiendo, y su nombre.
-      <img class="user-image img-medium" src="{{sender.image}}" alt="">
+      <a href="/user/{{sender.name}}">
+        <img class="user-image img-medium" src="{{sender.image}}" alt="{{sender.name}}">
+      </a>
       <p>{{sender.name}}</p>
     </header>
-
-  <div class="list-group container">
+  
+  <section class="chat__container container">
 
   {{#each message as |ms|}}
-    <hr>
     {{#isMyMessage ms ../user}}
-    HOLA
-    <article class="to-right list-group-item list-group-item-action flex-column align-items-start">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">Mensaje</h5>
+    <article class="chat__bubble to-right text-right">
+      <div class="text-left">
         <small id="time">{{datetime ms.createdAt}}</small>
-
       </div>
-
       <p class="mb-1">{{ms.body}}</p>
-      <small>{{ms.to}}</small>
+      <small>Tú</small>
     </article>
-
     {{/isMyMessage}}
-  {{/each}}
 
-  </div> 
+  {{#noMyMessage ms ../user}}
+    <article class="chat__bubble to-left text-left">
+      <div class="text-right">
+        <small id="time">{{datetime ms.createdAt}}</small>
+      </div>
+      <p class="mb-1">{{ms.body}}</p>
+      <small>De {{ms.from}}</small>
+    </article>
+  {{/noMyMessage}}
+
+  {{/each}}
+  </section> 
+
+  <section>
+      <form method="POST" class="container" action="/user/{{sender.name}}/messages">
+        <input type="text" name="message">
+        <button type="submit" class="btn bg-spotify">¡Conecta con {{sender.name}}!</button>
+    </form>
+  </section>
+
+
 </main>
 

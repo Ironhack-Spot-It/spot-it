@@ -72,9 +72,9 @@ module.exports.showMessage = (req, res, next) => {
         Msg.find({ $or: [{ from: req.params.sender, to: req.user.name }, { from: req.user.name, to: req.params.sender }] })
             .then(messages => {
 
-                User.find({ name: req.user.name })
+                User.find({ name: req.params.sender })
                     .then((sender) => {
-                        console.log('holi', sender[0].name)
+                        // console.log('holi', sender[0].name)
                         res.render('users/message', {
                             sender: sender[0],
                             message: messages, 
@@ -83,7 +83,7 @@ module.exports.showMessage = (req, res, next) => {
 
                     })
 
-                console.log('SENDER: ', messages)
+                // console.log('SENDER: ', messages)
 
 
             })
