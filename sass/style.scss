@@ -20,7 +20,7 @@ body {
     font: 16px "Open Sans", Helvetica, Arial, sans-serif;
     background-color: #000;
     color: #fff;
-    padding-bottom: 80px;
+    padding-bottom: 180px;
 }
 
 main {
@@ -99,17 +99,18 @@ h4 {
 }
 
 .login-info {
-
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
     margin-top: 3em;
     justify-content: center;
 
+    @media #{$l-device} {
+        flex-direction: row;
+    }
+
     &__box {
-    width: 30%;
     text-align: center;
-    padding: 5% 0;
+    padding: 5% 0 2% 0;
     background-size: cover; 
     font-weight: 800;
         p {
@@ -117,7 +118,7 @@ h4 {
         }
 
         h4, i {
-            color: $color-white
+            color: $color-white;
         }
     }
 
@@ -164,11 +165,11 @@ h4 {
 
 .img-home {
     width: 200px;
-    margin-top: 10%;
+    margin-top: 5%;
 }
 
 .img-small {
-    max-width: 40px;
+    max-width: 35px;
 }
 
 .img-medium {
@@ -201,28 +202,5 @@ h4 {
 
     &:hover {
     background-color:$color-white;
-    }
-}
-
-.footer {
-    background-color: $color-primary;
-    display: flex;
-    flex-direction: row;
-    justify-content:  space-evenly;
-    
-    &__ul {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    &__li {
-        display: flex;
-        flex-direction: row;
-        list-style-type: none;
-    }
-
-    img {
-        width: 35px;
-        height: 35px;
     }
 }
