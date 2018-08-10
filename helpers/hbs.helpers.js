@@ -20,5 +20,4 @@ module.exports = (hbs) => {
       return options.inverse(this);
     }
   })
-
 }

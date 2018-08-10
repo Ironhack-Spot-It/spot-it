@@ -9,7 +9,6 @@
     </header>
   
   <section class="chat__container container">
-
   {{#each message as |ms|}}
     {{#isMyMessage ms ../user}}
     <article class="chat__bubble to-right text-right">
@@ -34,8 +33,8 @@
   {{/each}}
   </section> 
 
-  <section>
-      <form method="POST" class="chat__send container" action="/user/{{sender.name}}/messages">
+  <section class="chat__send">
+      <form method="POST" class="container" action="/user/{{sender.name}}/messages">
         <div class="chat__send-input"><input class="form-control" type="text" name="message" placeholder="Escribe algo..."></div>
         <div><button type="submit" class="btn bg-spotify font-weight-bold color-light">Enviar</button></div>
     </form>
