@@ -2,21 +2,10 @@
     <header class="text-center">
       <img class="user-image img-medium" src="{{sender.image}}" alt="">
       <p>{{sender.name}}</p>
-FROM
-      {{message.from}}
-TO
-      {{message.to}}
-MESSAGE 
-{{message}}
-{{ms}}
-NAME
-{{name}}
-SENDER 
-{{SENDER}}
-USER
-{{USER}}
     </header>
-
+  {{#noMyMessage message user}}
+    {{message}}
+  {{/noMyMessage}}
   <div class="list-group container">
 
   {{#each message as |ms|}}

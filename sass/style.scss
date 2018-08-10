@@ -57,6 +57,10 @@ h4 {
 .spotify-button {
     border-radius: 50px;
     background-color: $color-spotify;
+    width: 200px;
+    height: 50px;
+    font-size: 18px;
+    font-weight: 400;
 }
 
 .separator {
@@ -101,15 +105,19 @@ h4 {
 
     &__boxtop {
         background-color: $color-primary;
+        opacity: 0.9;
+        color: $color-secondary;
     }
 
     &__boxcenter {
-        background-color: $color-white;
+        background-color: $color-primary;
         color: $color-secondary;
     }
 
     &__boxbottom {
-        background-color: $color-spotify;
+        background-color: $color-primary;
+        opacity: 0.8;
+        color: $color-secondary;
     }
 
 }
