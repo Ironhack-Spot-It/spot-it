@@ -3,11 +3,11 @@ const MATCH_LIMIT = 10;
 
 const userSchema = new mongoose.Schema({
     name: String, 
-    email: {
-        type: String, 
-        unique: true, 
-        required: true
-    },
+    // email: {
+    //     type: String, 
+    //     unique: true, 
+    //     required: true
+    // },
     image: {
         type: String,
         default: "https://thumbs.dreamstime.com/b/icono-masculino-de-la-imagen-del-perfil-del-avatar-del-defecto-placeholder-gris-de-la-foto-del-hombre-88414414.jpg"
