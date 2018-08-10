@@ -1,11 +1,9 @@
-<main class="">
+<main>
     <header class="text-center">
       <img class="user-image img-medium" src="{{sender.image}}" alt="">
       <p>{{sender.name}}</p>
     </header>
-  {{#noMyMessage message user}}
-    {{message}}
-  {{/noMyMessage}}
+
   <div class="list-group container">
 
   {{#each message as |ms|}}
@@ -21,8 +19,8 @@
     {{/isMyMessage}}
 
         {{#noMyMessage ms ../user}}
-    <article class="list-group-item list-group-item-action flex-column align-items-start">
-      <div class="d-flex w-100 justify-content-between">
+    <article class="to-left list-group-item list-group-item-action flex-column align-items-start">
+      <div class="to-left d-flex w-100 justify-content-between">
         <h6 class="mb-1">Recibido</h6>
         <smalid="time">{{datetime ms.createdAt}}</small>
       </div>
