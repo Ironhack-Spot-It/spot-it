@@ -5,6 +5,15 @@ $y-position: 25px;
 $b-width: 10px;
 
 .chat {
+    > header {
+        display: flex;
+        flex-direction: row; 
+        justify-content: space-around;
+        align-items: center;
+        padding-top: 2em;
+        padding-bottom: 1em;
+    }
+
     &__container {
         display: flex;
         flex-direction: column; 

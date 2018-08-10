@@ -1,9 +1,11 @@
 <main class="chat">
-    <header class="text-center">
-      <a href="/user/{{sender.name}}">
-        <img class="user-image img-medium" src="{{sender.image}}" alt="{{sender.name}}">
-      </a>
-      <p>{{sender.name}}</p>
+    <header class="text-center container">
+      <div>
+        <a href="/user/{{sender.name}}">
+          <img class="user-image img-medium" src="{{sender.image}}" alt="{{sender.name}}">
+        </a>
+        <h2>{{sender.name}}</h2>
+      </div>
     </header>
   
   <section class="chat__container container">
