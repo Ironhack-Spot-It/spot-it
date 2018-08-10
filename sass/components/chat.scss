@@ -24,6 +24,16 @@ $b-width: 10px;
         padding-top: 3%; 
         padding-bottom: 5%;
     }
+
+    &__send-msg {
+        position: relative;
+        width: 80%;
+        margin: 1% 0;
+        padding: 2em;
+        // border-radius: 15px;
+        background-color: $color-white;
+        color: black;
+    }
     &__bubble {
         position: relative;
         width: 80%;
