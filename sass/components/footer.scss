@@ -8,4 +8,22 @@ footer {
     left: 0;
     background-color: $color-primary; 
     color: $color-secondary;
+    text-align: center;
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+ 
+
+        @media #{$l-device} {
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+    }
+
+    img {
+        margin-left: 1em;
+    }
 }

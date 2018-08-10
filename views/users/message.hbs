@@ -4,10 +4,8 @@
         <img class="user-image img-medium" src="{{sender.image}}" alt="{{sender.name}}">
       </a>
       <p>{{sender.name}}</p>
-    </header>
-  
+    </header>  
   <section class="chat__container container">
-
   {{#each message as |ms|}}
     {{#isMyMessage ms ../user}}
     <article class="chat__bubble to-right text-right">
