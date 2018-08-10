@@ -1,0 +1,21 @@
+{{#if user.playlists}}
+<section class="profile__section">
+    <header class="container">
+        <h2>Escucha sus playlists favoritas</h2>
+        <span class="separator"></span>
+    </header>
+    <section class="d-flex flex-wrap">
+        {{#each user.playlists as |play|}}
+        <article class="item-card">
+            <a href="{{play.url}}" target="_blank">
+                <img class="item-card__img" src="{{play.imgUrl}}" alt="{{play.name}}">
+                <div class="item-card__content">
+                    <h5 class="item-card__title">{{play.name}}</h5>
+                </div>
+            </a>
+        </article>
+        {{/each}}
+    </section>
+</section>
+
+{{/if}}
