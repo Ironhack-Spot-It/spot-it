@@ -1,38 +1,44 @@
-<main class="">
+<main class="chat">
     <header class="text-center">
-      <img class="user-image img-medium" src="{{sender.image}}" alt="">
+      <a href="/user/{{sender.name}}">
+        <img class="user-image img-medium" src="{{sender.image}}" alt="{{sender.name}}">
+      </a>
       <p>{{sender.name}}</p>
     </header>
-  {{#noMyMessage message user}}
-    {{message}}
-  {{/noMyMessage}}
-  <div class="list-group container">
+  
+  <section class="chat__container container">
 
   {{#each message as |ms|}}
     {{#isMyMessage ms ../user}}
-    <article class="to-right list-group-item list-group-item-action flex-column align-items-start">
-      <div class="to-right__content d-flex w-100 justify-content-between">
-        <h6 class="mb-1">Enviado</h6>
+    <article class="chat__bubble to-right text-right">
+      <div class="text-left">
         <small id="time">{{datetime ms.createdAt}}</small>
       </div>
       <p class="mb-1">{{ms.body}}</p>
-      <small>Para {{ms.to}}</small>
+      <small>Tú</small>
     </article>
     {{/isMyMessage}}
 
-        {{#noMyMessage ms ../user}}
-    <article class="list-group-item list-group-item-action flex-column align-items-start">
-      <div class="d-flex w-100 justify-content-between">
-        <h6 class="mb-1">Recibido</h6>
-        <smalid="time">{{datetime ms.createdAt}}</small>
+  {{#noMyMessage ms ../user}}
+    <article class="chat__bubble to-left text-left">
+      <div class="text-right">
+        <small id="time">{{datetime ms.createdAt}}</small>
       </div>
       <p class="mb-1">{{ms.body}}</p>
-      <small>De {{ms.to}}</small>
+      <small>de {{ms.from}}</small>
     </article>
-    {{/noMyMessage}}
+  {{/noMyMessage}}
 
   {{/each}}
+  </section> 
 
-  </div> 
+  <section>
+      <form method="POST" class="chat__send container" action="/user/{{sender.name}}/messages">
+        <div class="chat__send-input"><input class="form-control" type="text" name="message" placeholder="Escribe algo..."></div>
+        <div><button type="submit" class="btn bg-spotify font-weight-bold color-light">Enviar</button></div>
+    </form>
+  </section>
+
+
 </main>
 
