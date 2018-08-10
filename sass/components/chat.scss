@@ -1,0 +1,71 @@
+@import '../general/vars';
+
+$x-position: -15px;
+$y-position: 25px;
+$b-width: 10px;
+
+.chat {
+    &__container {
+        display: flex;
+        flex-direction: column; 
+        flex-wrap: wrap;
+        padding-top: 3%; 
+        padding-bottom: 3%;
+    }
+    &__bubble {
+        position: relative;
+        width: 80%;
+        margin: 1% 0;
+        padding: 1em;
+        border-radius: 15px;
+        background-color: $color-white;
+        color: black;
+
+        p{
+            font-size: 18px;
+        }
+
+        &.to-left {
+            align-self: flex-start;
+
+            &:before {
+                content: " ";
+                position: absolute;
+                left: $x-position;
+                bottom: $y-position;
+                border-style: solid;
+                border-width: $b-width;
+                border-color: $color-white  $color-white transparent transparent;
+            }
+        }
+
+        &.to-right {
+            align-self: flex-end;
+
+            &:after {
+                content: " ";
+                position: absolute;
+                right: $x-position;
+                bottom: $y-position;
+                border-style: solid;
+                border-width: $b-width;
+                border-color:  transparent transparent $color-white  $color-white;
+            }
+        }
+        @media #{$l-device} {
+            width: 60%;
+        }
+    }
+
+    &__send {
+        display: flex;
+        flex-direction: row; 
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        &-input {
+            width: 90%;
+        }
+    }
+    
+}
